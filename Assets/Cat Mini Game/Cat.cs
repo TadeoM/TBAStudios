@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cat : MonoBehaviour {
 
     public CatColor catColor;
-    public float speed = 2f;
+    public float speed = 5f;
 
     public bool running;
 
@@ -45,6 +45,11 @@ public class Cat : MonoBehaviour {
     public void StopRunning()
     {
         running = false;
+    }
+
+    public void MaxSpeed()
+    {
+        speedMod = CatSpeed.Max;
     }
 
     private void OnMouseDown()

@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catColor: 0
-  speed: 5
+  speed: 4
   running: 0
 --- !u!212 &212568506850431170
 SpriteRenderer:

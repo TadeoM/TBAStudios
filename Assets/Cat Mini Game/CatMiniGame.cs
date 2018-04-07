@@ -28,8 +28,8 @@ public class CatMiniGame : MonoBehaviour {
         timer.OnSecondsChanged += HandleSecondsChanged;
 
         // Start the timer 
-        timer.SetTimer(miniGameDuration);
-        timerText.text = miniGameDuration.ToString();
+        InitTimer();
+
         
     }
 
@@ -70,6 +70,12 @@ public class CatMiniGame : MonoBehaviour {
     }
 
     // Mini Game Setup
+
+    void InitTimer()
+    {
+        timer.SetTimer(miniGameDuration);
+        timerText.text = miniGameDuration.ToString();
+    }
 
     void BirthCats()
     {
@@ -121,6 +127,8 @@ public class CatMiniGame : MonoBehaviour {
     {
         Debug.Log("Cat MiniGame Stopped");
         StopCoroutine("RunGame");
+        StartCoroutine("ResetGame");
+
     }
     
     IEnumerator RunGame()
@@ -143,6 +151,23 @@ public class CatMiniGame : MonoBehaviour {
         StartCoroutine("RunGame");
     }
 
+    IEnumerator ResetGame()
+    {
+        Debug.Log("Cat MiniGame Reseting");
+
+        yield return new WaitForSeconds(2);
+
+        for (int i = 0; i < cats.Count; i++)
+        {
+            cats[i].GetComponent<Cat>().StopRunning();
+            cats[i].transform.position = GetSpawnPoint();
+        }
+
+        InitTimer();
+
+    }
+
+
     public void SetTargetCat(CatColor targetCatColor)
     {
         Debug.Log("Setting targetCatColor to " + targetCatColor.ToString());
@@ -161,6 +186,7 @@ public class CatMiniGame : MonoBehaviour {
         }
         else
         {
+            selectedCat.MaxSpeed();
             Debug.Log("You lose stop hitting cats");
         }
         
