@@ -122,17 +122,22 @@ public class CatMiniGame : MonoBehaviour {
     
     IEnumerator RunGame()
     {
-        Debug.Log("Cat MiniGame Running");
-        
-        yield return null;
+        Debug.Log("Cat MiniGame Running");       
 
-        // Spawn cats off screen to either side
+        // Check if the cats are running
+        for (int i = 0; i < cats.Count; i++)
+        {
+            // Make them run. 
+            if (!cats[i].GetComponent<Cat>().running)
+            {
+                cats[i].GetComponent<Cat>().StartRunning();
+            }
 
-        // Make cats run across to other side
+            yield return new WaitForSeconds(Random.Range(0.2f, 0.7f));
+        }
+        yield return new WaitForSeconds(1);
 
-        // Kill the cat? no just reuse it #save the cats
-
-        RunGame();
+        StartCoroutine("RunGame");
     }
 
     public void SetTargetCat(CatColor targetCatColor)
