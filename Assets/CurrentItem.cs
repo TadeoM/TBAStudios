@@ -35,6 +35,7 @@ public class CurrentItem : MonoBehaviour {
         target = boxLocationMap[new Vector2(0, 0)];
     }
 	
+    //Blah
 	// Update is called once per frame
 	void Update () {
         Vector2 posChange = new Vector2();
