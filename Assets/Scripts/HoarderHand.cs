@@ -38,14 +38,14 @@ public class HoarderHand : MonoBehaviour {
         placehold2 = GameObject.FindGameObjectWithTag("Placeholder2").GetComponent<Transform>().position;
         gameTimer = GameObject.FindGameObjectWithTag("HoarderTime").GetComponent<GameTimer>();
         holdTimer = new Timer();
-        holdTimer.SetTimer(1);
+        holdTimer.SetTimer(.5f);
         holdTimer.OnTimeUp += HandleTimeUp;
         for (int i = 0; i < itemsToSteal; i++)
         {
-            int random = Random.Range(5, gameTimer.GameTime);
-            while (handTimes.Contains(random))
+            int random = Random.Range(5, gameTimer.GameTime-5);
+            while (handTimes.Contains(random) || handTimes.Contains(random-1) || handTimes.Contains(random+1))
             {
-                random = Random.Range(5, gameTimer.GameTime);
+                random = Random.Range(0, gameTimer.GameTime-5);
             }
             Debug.Log(random);
             handTimes.Add(random);
@@ -106,6 +106,7 @@ public class HoarderHand : MonoBehaviour {
     void HandleTimeUp()
     {
         handMovingBack = true;
+        holdTimer.Reset();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -120,7 +121,6 @@ public class HoarderHand : MonoBehaviour {
         {
             Debug.Log("Hand colliding with target");
             holdTimer.StartTimer();
-            handMovingBack = true;
         }
         if (collision.gameObject.name == "HandPlacehold1" || collision.gameObject.name == "HandPlacehold2")
         {
