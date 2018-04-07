@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Timer {
+public class Timer : MonoBehaviour {
 
-    float seconds;
+    public float seconds;
 
     public bool running;
 
