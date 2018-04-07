@@ -10,6 +10,9 @@ public class CurrentItem : MonoBehaviour {
     private Dictionary<Vector2, OrganizeBox> boxLocationMap;
     private OrganizeBox target;
     private Vector2 size;
+    private Vector3 originalPosition;
+    private bool inMotion;
+    [SerializeField] private int SPEED;
 
     // Doing this because C# is dumb 
     int Mod(int x, int m)
@@ -33,11 +36,17 @@ public class CurrentItem : MonoBehaviour {
             boxLocationMap.Add(box.Position, box);
         }
         target = boxLocationMap[new Vector2(0, 0)];
+        originalPosition = gameObject.GetComponent<Transform>().position;
     }
 	
-    //Blah
 	// Update is called once per frame
 	void Update () {
+        if (inMotion)
+        {
+            Vector3 movePos = Vector3.MoveTowards(GetComponent<Transform>().position, target.GetComponent<Transform>().position, SPEED * Time.deltaTime);
+            GetComponent<Transform>().position = movePos;
+            return;
+        }
         Vector2 posChange = new Vector2();
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -62,5 +71,31 @@ public class CurrentItem : MonoBehaviour {
         target.GetComponent<SpriteRenderer>().color = Color.red; 
         target = boxLocationMap[newPos];
         target.GetComponent<SpriteRenderer>().color = Color.blue;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(target.Type == this.type)
+            {
+                itemsLeft--;
+                target.addItem();
+            }
+            else
+            {
+                itemsLeft++;
+            }
+            inMotion = true;
+        }
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Colliding");
+        OrganizeBox collision = other.GetComponent<OrganizeBox>();
+        if (collision.Position.Equals(target.Position))
+        {
+            Debug.Log("Colliding with correct object");
+            type = (OrganizeBox.ItemType)Random.Range(0, 5);
+            GetComponent<Transform>().position = originalPosition;
+            inMotion = false;
+        }
+    }
 }

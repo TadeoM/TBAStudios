@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class OrganizeBox : MonoBehaviour {
 
-    private ItemType type;
+    [SerializeField] private ItemType type;
+    [SerializeField] private Vector2 position;
     private int numItems;
-    [SerializeField] private Vector2 position; 
 
     public ItemType Type
     {
