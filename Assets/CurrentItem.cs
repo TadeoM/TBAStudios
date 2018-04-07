@@ -6,6 +6,7 @@ public class CurrentItem : MonoBehaviour {
 
     [SerializeField] private OrganizeBox.ItemType type;
     private int itemsLeft;
+    private HoarderHand hoarder;
     private List<OrganizeBox> targets;
     private Dictionary<Vector2, OrganizeBox> boxLocationMap;
     private OrganizeBox target;
@@ -26,8 +27,9 @@ public class CurrentItem : MonoBehaviour {
         size = new Vector2(3, 2);
         targets = new List<OrganizeBox>();
         boxLocationMap = new Dictionary<Vector2, OrganizeBox>();
-        GameObject[] targetsTest; 
+        GameObject[] targetsTest;
         targetsTest = GameObject.FindGameObjectsWithTag("Box");
+        hoarder = GameObject.FindGameObjectWithTag("Hand").GetComponent<HoarderHand>();
         foreach(GameObject gameObject in targetsTest){
             targets.Add(gameObject.GetComponent<OrganizeBox>());
         }
@@ -67,9 +69,9 @@ public class CurrentItem : MonoBehaviour {
         Vector2 newPos;
         newPos.x = Mod((int)(target.Position.x + posChange.x), (int)size.x);
         newPos.y = Mod((int)(target.Position.y + posChange.y), (int)size.y);
-        Debug.Log(newPos.ToString());
         target.GetComponent<SpriteRenderer>().color = Color.red; 
         target = boxLocationMap[newPos];
+        hoarder.Target = target; 
         target.GetComponent<SpriteRenderer>().color = Color.blue;
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -93,8 +95,8 @@ public class CurrentItem : MonoBehaviour {
         if (collision.Position.Equals(target.Position))
         {
             Debug.Log("Colliding with correct object");
-            type = (OrganizeBox.ItemType)Random.Range(0, 5);
             GetComponent<Transform>().position = originalPosition;
+            type = (OrganizeBox.ItemType)Random.Range(0, 5);
             inMotion = false;
         }
     }
