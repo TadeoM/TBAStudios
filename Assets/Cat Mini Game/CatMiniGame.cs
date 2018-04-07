@@ -59,13 +59,13 @@ public class CatMiniGame : MonoBehaviour {
 
     void HandleTimeUp()
     {
-        Debug.Log("Time is up!");
+        // Debug.Log("Time is up!");
         StopMiniGame();
     }
 
     void HandleSecondsChanged(int secondsRemaining)
     {
-        Debug.Log("Seconds Remaining: " + secondsRemaining);
+        // Debug.Log("Seconds Remaining: " + secondsRemaining);
         timerText.text = secondsRemaining.ToString();
     }
 
@@ -117,7 +117,7 @@ public class CatMiniGame : MonoBehaviour {
 
     public void StartMiniGame()
     {
-        Debug.Log("Cat MiniGame Started");
+        // Debug.Log("Cat MiniGame Started");
 
         timer.StartTimer();
         StartCoroutine("RunGame");
@@ -125,7 +125,7 @@ public class CatMiniGame : MonoBehaviour {
 
     public void StopMiniGame()
     {
-        Debug.Log("Cat MiniGame Stopped");
+        // Debug.Log("Cat MiniGame Stopped");
         StopCoroutine("RunGame");
         StartCoroutine("ResetGame");
 
@@ -133,7 +133,7 @@ public class CatMiniGame : MonoBehaviour {
     
     IEnumerator RunGame()
     {
-        Debug.Log("Cat MiniGame Running");       
+        // Debug.Log("Cat MiniGame Running");       
 
         // Check if the cats are running
         for (int i = 0; i < cats.Count; i++)
@@ -153,7 +153,7 @@ public class CatMiniGame : MonoBehaviour {
 
     IEnumerator ResetGame()
     {
-        Debug.Log("Cat MiniGame Reseting");
+        // Debug.Log("Cat MiniGame Reseting");
 
         yield return new WaitForSeconds(2);
 
@@ -170,7 +170,7 @@ public class CatMiniGame : MonoBehaviour {
 
     public void SetTargetCat(CatColor targetCatColor)
     {
-        Debug.Log("Setting targetCatColor to " + targetCatColor.ToString());
+        // Debug.Log("Setting targetCatColor to " + targetCatColor.ToString());
         this.targetCatColor = targetCatColor;
         BirthCats();
     }
@@ -179,17 +179,20 @@ public class CatMiniGame : MonoBehaviour {
     {
         if(selectedCat.catColor == targetCatColor)
         {
-            Debug.Log("You win");
+            // Debug.Log("You win");
             selectedCat.StopRunning();
+            selectedCat.PlaySatisfied();
             timer.StopTimer();
             StopMiniGame();
         }
         else
         {
             selectedCat.MaxSpeed();
-            Debug.Log("You lose stop hitting cats");
+            selectedCat.PlayDissatisfied();
+
+            // Debug.Log("You lose stop hitting cats");
         }
-        
+
 
     }
 }

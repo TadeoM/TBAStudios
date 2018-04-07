@@ -311,6 +311,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114205808783749544, guid: 9eff0ea7293a2d747b6709ca107f261c,
+        type: 2}
+      propertyPath: satisfiedSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114205808783749544, guid: 9eff0ea7293a2d747b6709ca107f261c,
+        type: 2}
+      propertyPath: dissatisfiedSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4831385339586446, guid: 9eff0ea7293a2d747b6709ca107f261c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.78
