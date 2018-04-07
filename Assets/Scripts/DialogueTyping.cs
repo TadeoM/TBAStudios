@@ -52,7 +52,7 @@ public class DialogueTyping : MonoBehaviour {
         charPos = 0;
 
         word = lines[line];
-
+        
         charsBlack = new List<Text>();
         charsWhite = new List<Text>();
 
