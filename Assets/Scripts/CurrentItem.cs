@@ -71,7 +71,10 @@ public class CurrentItem : MonoBehaviour {
         newPos.y = Mod((int)(target.Position.y + posChange.y), (int)size.y);
         target.GetComponent<SpriteRenderer>().color = Color.red; 
         target = boxLocationMap[newPos];
-        hoarder.Target = target; 
+        if (!hoarder.HandMoving)
+        {
+            hoarder.Target = target;
+        }
         target.GetComponent<SpriteRenderer>().color = Color.blue;
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -92,6 +95,10 @@ public class CurrentItem : MonoBehaviour {
     {
         Debug.Log("Colliding");
         OrganizeBox collision = other.GetComponent<OrganizeBox>();
+        if(collision == null)
+        {
+            return;
+        }
         if (collision.Position.Equals(target.Position))
         {
             Debug.Log("Colliding with correct object");

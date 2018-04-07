@@ -5,6 +5,7 @@ using UnityEngine;
 public class Timer {
 
     float seconds;
+    float startTime;
 
     public bool running;
 
@@ -48,14 +49,27 @@ public class Timer {
     public void SetTimer(int seconds, bool start=false)
     {
         this.seconds = seconds;
+        startTime = seconds;
         secondsTracker = seconds;
         if (start) StartTimer();
+    }
+
+    public void SetTimer(float seconds, bool start = false)
+    {
+        this.seconds = seconds;
+        startTime = seconds;
+        secondsTracker = seconds;
+        if (start) StartTimer();
+    }
+
+    public void Reset()
+    {
+        seconds = startTime;
     }
 
     void TimeExpired()
     {
         StopTimer();
         if (OnTimeUp != null) OnTimeUp();
-
     }
 }
