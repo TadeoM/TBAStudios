@@ -19,6 +19,7 @@ public class Cat : MonoBehaviour {
     CatSpeed speedMod = CatSpeed.Normal;
     Vector3 targetPosition;
     AudioSource audioSource;
+    bool facingRight;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +44,8 @@ public class Cat : MonoBehaviour {
     {
         targetPosition = new Vector3(-transform.position.x, -transform.position.y, transform.position.z);
         speedMod = (CatSpeed)Mathf.FloorToInt(Random.Range(1, 3));
+        facingRight = transform.position.x < 0;
+        transform.localScale = new Vector3(facingRight ? -1 : 1, transform.localScale.y, transform.localScale.z); 
         running = true;
     }
 
