@@ -9,7 +9,10 @@ public class Cat : MonoBehaviour {
 
     public bool running;
 
-    enum CatSpeed { Slow = 1, Normal = 2, Fast = 3}
+    public delegate void CatSelected(Cat catColor);
+    public event CatSelected OnCatSelected;
+
+    enum CatSpeed { Slow = 1, Normal = 2, Fast = 3, Max}
     CatSpeed speedMod = CatSpeed.Normal;
     Vector3 targetPosition;
 
@@ -35,11 +38,19 @@ public class Cat : MonoBehaviour {
     public void StartRunning()
     {
         targetPosition = new Vector3(-transform.position.x, -transform.position.y, transform.position.z);
+        speedMod = (CatSpeed)Mathf.FloorToInt(Random.Range(1, 3));
         running = true;
+    }
+
+    public void StopRunning()
+    {
+        running = false;
     }
 
     private void OnMouseDown()
     {
         Debug.Log("You hit " + name + "!! how could you!");
+        if (OnCatSelected != null)
+            OnCatSelected(this);
     }
 }

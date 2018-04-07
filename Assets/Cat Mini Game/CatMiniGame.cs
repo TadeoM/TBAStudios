@@ -79,7 +79,9 @@ public class CatMiniGame : MonoBehaviour {
             if (catPrefabs[i].GetComponent<Cat>().catColor == targetCatColor)
                 continue;
             GameObject catObject = Instantiate(catPrefabs[i], GetSpawnPoint(), Quaternion.identity);
+            catObject.GetComponent<Cat>().OnCatSelected += HandleCatSelection;
             cats.Add(catObject);
+
         }
 
         for (int i = 0; i < catPrefabs.Length; i++)
@@ -87,6 +89,7 @@ public class CatMiniGame : MonoBehaviour {
             if (catPrefabs[i].GetComponent<Cat>().catColor == targetCatColor)
             {
                 GameObject targetCatObject = Instantiate(catPrefabs[i], GetSpawnPoint(), Quaternion.identity);
+                targetCatObject.GetComponent<Cat>().OnCatSelected += HandleCatSelection;
                 cats.Add(targetCatObject);
             }
                 
@@ -145,5 +148,22 @@ public class CatMiniGame : MonoBehaviour {
         Debug.Log("Setting targetCatColor to " + targetCatColor.ToString());
         this.targetCatColor = targetCatColor;
         BirthCats();
+    }
+
+    public void HandleCatSelection(Cat selectedCat)
+    {
+        if(selectedCat.catColor == targetCatColor)
+        {
+            Debug.Log("You win");
+            selectedCat.StopRunning();
+            timer.StopTimer();
+            StopMiniGame();
+        }
+        else
+        {
+            Debug.Log("You lose stop hitting cats");
+        }
+        
+
     }
 }
