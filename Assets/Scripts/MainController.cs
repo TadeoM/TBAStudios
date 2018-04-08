@@ -7,8 +7,14 @@ public class MainController : MonoBehaviour
     private int daysLeft = 7;
     public GameObject player;
     public GameObject[] nonPlayers;
+    public Dialogues dialogue;
+    bool setupOnce = false;
     NPCInteractions[] nonPlayerScripts;
     private Timer timer = new Timer();
+
+    // text stuff
+
+
     /// <summary>
     /// level of happiness of NPC
     /// your level of happiness
@@ -17,16 +23,22 @@ public class MainController : MonoBehaviour
 
 	// Use this for initialization
 	void Awake () {
+        dialogue = GetComponent<Dialogues>();
+        GetComponent<Dialogues>().SetupEverything();
         player = GameObject.FindGameObjectWithTag("Player");
         SetNonPlayers();
-        NewDay();
+        dialogue.SetupEverything();
     } 
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         timer.Update();
         NPCInteraction();
-
+        if(dialogue.isSetup && !setupOnce)
+        {
+            NewDay();
+            setupOnce = true;
+        }
         if (!timer.running)
         {
             switch (daysLeft)
@@ -52,6 +64,7 @@ public class MainController : MonoBehaviour
         nonPlayers = GameObject.FindGameObjectsWithTag("NPC");
 
         nonPlayerScripts = new NPCInteractions[nonPlayers.Length];
+
         // for every NPC we found, get their script
         for (int i = 0; i < nonPlayers.Length; i++)
         {
@@ -71,7 +84,7 @@ public class MainController : MonoBehaviour
 
         for (int i = 0; i < nonPlayerScripts.Length; i++)
         {
-            nonPlayerScripts[i].NewMiniGame();
+            nonPlayerScripts[i].NewDaySetup();
         }
         Debug.Log("New day");
         daysLeft--;
@@ -86,7 +99,6 @@ public class MainController : MonoBehaviour
         {
             if (nonPlayerScripts[i].IsTriggered && CheckInputs() == 0)
             {
-
                 Debug.Log("We want to play " + nonPlayerScripts[i].CurrentMinigame + " minigame");
             }
         }

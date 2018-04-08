@@ -3,12 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCInteractions : MonoBehaviour {
+    int value;
     private bool isTriggered = false;
     private string currentMinigame;
     public string[] possibleMinigames;
     private float happiness;
     private SpriteRenderer silhouette;
     private Transform child;
+    private string[,] conversations;
+    private string[] currentConversation;
+
+    public string[] CurrentConversation
+    {
+        get { return currentConversation; }
+        set { currentConversation = value; }
+    }
+
+
+    public string[,] Conversations
+    {
+        get { return conversations; }
+        set { conversations = value; }
+    }
+
 
     public float Happiness
     {
@@ -28,8 +45,8 @@ public class NPCInteractions : MonoBehaviour {
 
 
     // Use this for initialization
-    void Awake() {
-        NewMiniGame();
+    void Awake()
+    {
         happiness = 100;
         child = transform.GetChild(0);
         silhouette = child.GetComponent<SpriteRenderer>();
@@ -39,16 +56,28 @@ public class NPCInteractions : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
         ChangeMentalState(-1f);
-
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isTriggered = true;
     }
-    public void NewMiniGame()
+    public void NewDaySetup()
     {
-        currentMinigame = possibleMinigames[Random.Range(0, possibleMinigames.Length)];
+        value =  Random.Range(0, possibleMinigames.Length);
+
+        currentMinigame = possibleMinigames[value];
+        
+        currentConversation = new string[conversations.GetUpperBound(1)];
+        //Debug.Log(conversations.Length);
+        for (int i = 0; i < currentConversation.Length; i++)
+        {
+            Debug.Log(value);
+            currentConversation[i] = conversations[value, i];
+        }
+        
+        
+        
     }
 
     public void ChangeMentalState(float hapVal)

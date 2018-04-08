@@ -41,7 +41,6 @@ public class PlayerInteractions : MonoBehaviour {
         if (happiness < 0)
         {
             happiness = 0;
-
         }
         if(energy < 0)
         {
