@@ -59,6 +59,30 @@ public class NPCInteractions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameManager.Instance.PlayerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+        Debug.Log(this.name);
+
+        if (this.name == "ElizabethNPC" && !GameManager.Instance.playedE)
+        {
+            LevelManager.Instance.LoadScene(Level.CatMiniGame);
+        }
+        else if (this.name == "JoeJonesNPC" && !GameManager.Instance.playedJoe)
+        {
+            LevelManager.Instance.LoadScene(Level.HoardingMiniGame);
+        }
+        else if (this.name == "FuyumiNPC" && !GameManager.Instance.playedF)
+        {
+            LevelManager.Instance.LoadScene(Level.DialogMiniGame);
+        }
+        else if (this.name == "JonDoeNPC" && !GameManager.Instance.playedJon)
+        {
+            LevelManager.Instance.LoadScene(Level.CuttingMiniGame);
+        }
+
+        //LevelManager.Instance.LoadScene(Level.MainGame);
+
+
         isTriggered = true;
     }
     private void OnTriggerExit2D(Collider2D collision)

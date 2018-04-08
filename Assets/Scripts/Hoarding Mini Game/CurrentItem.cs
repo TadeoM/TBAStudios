@@ -28,6 +28,14 @@ public class CurrentItem : MonoBehaviour {
     [SerializeField] private GameObject spriteTree;
     [SerializeField] private GameObject boxOverlay;
 
+    public bool GameOver
+    {
+        get
+        {
+            return gameOver;
+        }
+    }
+
     // Doing this because C# is dumb 
     int Mod(int x, int m)
     {
@@ -88,18 +96,27 @@ public class CurrentItem : MonoBehaviour {
         target = boxLocationMap[new Vector2(0, 0)];
         originalPosition = gameObject.GetComponent<Transform>().position;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         timerText.text = "0:";
-        if(gameTimer.TimeLeft < 10)
+        if (gameTimer.TimeLeft < 10)
         {
             timerText.text += "0";
         }
         timerText.text += gameTimer.TimeLeft.ToString();
         itemText.text = itemsLeft.ToString();
-        if(itemsLeft == 0)
+        if (itemsLeft == 0 || gameTimer.TimeLeft == 0)
         {
+            gameOver = true;
+            /*
+            if (itemsLeft < 5)
+            {
+                GameManager.Instance.CurrentNPCScript.ChangeMentalState((int)GameManager.Kindness.Best);
+            }
+            GameManager.Instance.CurrentNPCScript.ChangeMentalState((int)GameManager.Kindness.Good);
+            */
             gameTimer.StopTimer();
         }
         if (inMotion)
@@ -140,7 +157,7 @@ public class CurrentItem : MonoBehaviour {
             }
         }
         Debug.Log(newPos);
-        target.GetComponent<SpriteRenderer>().color = Color.white; 
+        target.GetComponent<SpriteRenderer>().color = Color.white;
         target = boxLocationMap[newPos];
         if (!hoarder.HandMoving)
         {
@@ -149,14 +166,21 @@ public class CurrentItem : MonoBehaviour {
         boxOverlay.GetComponent<Transform>().position = target.GetComponent<Transform>().position;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(target.Type == this.type)
+            if (target.Type == this.type)
             {
                 itemsLeft--;
                 target.addItem();
             }
             inMotion = true;
         }
-	}
+
+        if (GameOver)
+        {
+            LevelManager.Instance.LoadScene(Level.MainGame);
+            GameManager.Instance.playedJoe = true;
+        }
+
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

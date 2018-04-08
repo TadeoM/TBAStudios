@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum Level { MainGame, CatMiniGame, CuttingMiniGame, DialogMiniGame, HoardingMiniGame, Credits }
+
 public class LevelManager : MonoBehaviour {
     public static LevelManager Instance;
 
-    public enum Level { MainMenu, Game, CatMiniGame, CuttingMiniGame, DialogMiniGame, HoardingMiniGame, Credits }
 
     private void Awake()
     {
@@ -26,13 +27,9 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Dev controls
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            LoadScene((int)Level.MainMenu);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            LoadScene((int)Level.Game);
+            LoadScene((int)Level.MainGame);
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))

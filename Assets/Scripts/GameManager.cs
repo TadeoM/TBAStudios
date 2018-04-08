@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     private int cookingScore;
 
     public enum Kindness { Neutral, Ok, Good, Best };
-    
+
+    public bool playedE, playedF, playedJoe, playedJon;
+
     public int CookingScore
     {
         get
@@ -60,6 +62,10 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        playedE = false;
+        playedF = false;
+        playedJoe = false;
+        playedJon = false;
         playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
         cookingScore = 0;
     }

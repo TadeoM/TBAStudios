@@ -252,6 +252,9 @@ public class DialogueTyping : MonoBehaviour {
             }
 
             finish = false;
+
+            LevelManager.Instance.LoadScene(Level.MainGame);
+            GameManager.Instance.playedF = true;
         }
     }
 

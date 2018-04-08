@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour {
     void Start () {
         currentCamera = Camera.main;
         currentCamera.backgroundColor = dayTime;
+        GameObject.FindGameObjectWithTag("Player").transform.position = GameManager.Instance.PlayerPos;
     }
 	
 	// Update is called once per frame

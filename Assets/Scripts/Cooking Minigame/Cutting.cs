@@ -52,8 +52,9 @@ public class Cutting : MonoBehaviour {
     {
         //end game
         Debug.Log("Kinves Down!");
-        end_minigame = true;
-        GameManager.Instance.CookingScore += score;
+        //end_minigame = true;
+        //GameManager.Instance.CookingScore += score;
+        //LevelManager.Instance.LoadScene(Level.MainGame);
         //add transition to main game from minigame
     }
 
@@ -130,7 +131,15 @@ public class Cutting : MonoBehaviour {
                             //end game
                             end_minigame = true;
                             GameManager.Instance.CookingScore += score;
+                            if(score > 30)
+                            {
+                                GameManager.Instance.CurrentNPCScript.ChangeMentalState((int)GameManager.Kindness.Best);
+                            }
+                            GameManager.Instance.CurrentNPCScript.ChangeMentalState((int)GameManager.Kindness.Good);
+
                             Debug.Log(GameManager.Instance.CookingScore);
+                            GameManager.Instance.playedJon = true;
+                            LevelManager.Instance.LoadScene(Level.MainGame);
                             //add transition to main game from minigame
                         }
                         else

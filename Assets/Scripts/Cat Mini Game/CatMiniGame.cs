@@ -127,7 +127,8 @@ public class CatMiniGame : MonoBehaviour {
         // Debug.Log("Cat MiniGame Stopped");
         StopCoroutine("RunGame");
         StartCoroutine("ResetGame");
-
+        LevelManager.Instance.LoadScene(Level.MainGame);
+        GameManager.Instance.playedJon = true;
     }
     
     IEnumerator RunGame()
