@@ -153,7 +153,8 @@ public class MainController : MonoBehaviour
                 // -2.49  -0.9655123
                 player.transform.position = new Vector2(-2.49f, -0.96f);
             }
-            else if (player.transform.position.x <= -1.7f && player.transform.position.y < -1f)
+            // this elseif is broken
+            else if (player.transform.position.x <= -1.7f && player.transform.position.y > -1f)
             {
                 // -2.49  -0.9655123
                 player.transform.position = new Vector2(-2.384f, -2.971f);

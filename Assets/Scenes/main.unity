@@ -797,7 +797,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4948245362195538, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.36
+      value: 3.119
       objectReference: {fileID: 0}
     - target: {fileID: 4948245362195538, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -825,7 +825,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4948245362195538, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4948245362195538, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
       propertyPath: m_LocalScale.y
@@ -834,6 +834,32 @@ Prefab:
     - target: {fileID: 1695424479256254, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
       propertyPath: m_Name
       value: JonDoeNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 212452362317125808, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212452362317125808, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300040, guid: 10dbff30a0edd204d9b2ad5977c52b42,
+        type: 3}
+    - target: {fileID: 212634458548596846, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61696932899552726, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 61696932899552726, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.63
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
@@ -898,7 +924,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4552741046965158, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.8
+      value: -3.064
       objectReference: {fileID: 0}
     - target: {fileID: 4552741046965158, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -926,7 +952,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4552741046965158, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4552741046965158, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_LocalScale.y
@@ -935,6 +961,27 @@ Prefab:
     - target: {fileID: 1383750322878112, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_Name
       value: FuyumiNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 212658472094531550, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300020, guid: 10dbff30a0edd204d9b2ad5977c52b42,
+        type: 3}
+    - target: {fileID: 212496553995764234, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212496553995764234, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212658472094531550, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
@@ -1007,11 +1054,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4492994222428860, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.62
+      value: 2.669
       objectReference: {fileID: 0}
     - target: {fileID: 4492994222428860, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.26
+      value: 0.922
       objectReference: {fileID: 0}
     - target: {fileID: 4492994222428860, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1047,7 +1094,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4492994222428860, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4492994222428860, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_LocalScale.y
@@ -1056,6 +1103,52 @@ Prefab:
     - target: {fileID: 1388541790178892, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_Name
       value: ElizabethNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 212501336610567172, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 10dbff30a0edd204d9b2ad5977c52b42,
+        type: 3}
+    - target: {fileID: 61457032387299010, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 61457032387299010, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 212975963874656486, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212975963874656486, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212975963874656486, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212975963874656486, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212501336610567172, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212501336610567172, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d7191b8e930374e8204c788417a889, type: 2}
@@ -1226,6 +1319,12 @@ Prefab:
       propertyPath: m_MaxSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 212678943451572546, guid: 86bdbb2619f551b408a4492d67b6104f,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 10dbff30a0edd204d9b2ad5977c52b42,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86bdbb2619f551b408a4492d67b6104f, type: 2}
   m_IsPrefabParent: 0
@@ -1978,7 +2077,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4913493359585766, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.73
+      value: -1.044
       objectReference: {fileID: 0}
     - target: {fileID: 4913493359585766, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2018,11 +2117,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4913493359585766, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4913493359585766, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212619498003125734, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212619498003125734, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 10dbff30a0edd204d9b2ad5977c52b42,
+        type: 3}
+    - target: {fileID: 212184292476686994, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
