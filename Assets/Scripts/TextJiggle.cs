@@ -28,11 +28,11 @@ public class TextJiggle : MonoBehaviour {
 
         if(randScale == 0)
         {
-            scale = 4;
+            scale = 5;
         }
         else
         {
-            scale = -4;
+            scale = -5;
         }
 
         randVert = Random.Range(15, 45);

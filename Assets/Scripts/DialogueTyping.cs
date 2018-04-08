@@ -13,6 +13,10 @@ public class DialogueTyping : MonoBehaviour {
     public Text charBlack;
     public Text charWhite;
 
+    public Text poemLine1;
+    public Text poemLine2;
+    public Text poemLine3;
+
     float spacing;
 
     Vector3 posBlack;
@@ -21,31 +25,14 @@ public class DialogueTyping : MonoBehaviour {
     List<Text> charsBlack;
     List<Text> charsWhite;
 
-    List<string[]> dialogueFiles = new List<string[]>();
-
-    int dialogueFile;
-
     string[] lines;
 
     int line;
 
-    public Text npcText;
-
-    string[] npcLines = System.IO.File.ReadAllLines(@"C:\Users\Jeb\Desktop\School\Jams\IThrive Kindness Text\npcTest.txt");
-
-    int npcLine;
-
     // Use this for initialization
     void Start() {
 
-        dialogueFiles.Add(System.IO.File.ReadAllLines(@"C:\Users\Jeb\Desktop\School\Jams\IThrive Kindness Text\Greeting1.txt"));
-        dialogueFiles.Add(System.IO.File.ReadAllLines(@"C:\Users\Jeb\Desktop\School\Jams\IThrive Kindness Text\Goodbye1.txt"));
-
-        dialogueFile = 0;
-
-        lines = dialogueFiles[dialogueFile];
-
-        line = 0;
+        lines = System.IO.File.ReadAllLines(@"C:\Users\Jeb\Desktop\School\Jams\IThrive Kindness Text\Sun.txt");
 
         spacing = 25;
 
@@ -77,10 +64,6 @@ public class DialogueTyping : MonoBehaviour {
         {
             charsBlack[i].text = word.Substring(i, 1);
         }
-
-        npcLine = 0;
-
-        npcText.text = npcLines[npcLine];
     }
 	
 	// Update is called once per frame
@@ -88,7 +71,11 @@ public class DialogueTyping : MonoBehaviour {
 
         if (charPos < word.Length)
         {
-            if (Input.GetKeyDown(word.Substring(charPos, 1)))
+            if(word.Substring(charPos, 1) == " ")
+            {
+                charPos++;
+            }
+            else if (Input.GetKeyDown(word.Substring(charPos, 1)))
             {
                 charsWhite[charPos].text = word.Substring(charPos, 1);
                 Destroy(charsBlack[charPos]);
@@ -104,29 +91,6 @@ public class DialogueTyping : MonoBehaviour {
             if(line < lines.Length)
             {
                 CharArrayReset();
-            }
-        }
-
-        if(line == lines.Length)
-        {
-            line = 0;
-
-            dialogueFile++;
-
-            if (dialogueFile < dialogueFiles.Count)
-            {
-                lines = dialogueFiles[dialogueFile];
-            }
-
-            if(dialogueFile != dialogueFiles.Count)
-            {
-                CharArrayReset();
-            }
-            npcLine++;
-
-            if(npcLine < npcLines.Length)
-            {
-                npcText.text = npcLines[npcLine];
             }
         }
     }
