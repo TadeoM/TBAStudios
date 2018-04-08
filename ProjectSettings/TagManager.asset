@@ -4,6 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Box
+  - Hand
+  - Placeholder1
+  - Placeholder2
+  - HoarderTime
+  - Item
   - floor
   - NPC
   layers:
@@ -15,8 +21,8 @@ TagManager:
   - UI
   - 
   - 
-  - NPC
-  - Floor
+  - 
+  -
   - 
   - 
   - 
