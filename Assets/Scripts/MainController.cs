@@ -68,19 +68,20 @@ public class MainController : MonoBehaviour
             }
         }
 
-        if(fadeTimer > 0)
-        {
-            if(fadeOut)
-                Fade(0.1f);
-            Debug.Log("Calling it");
-        }
-
-        if (true)
-        {
-            player.GetComponent<Platformer2DUserControl>().acceptInputs = true;
-            player.GetComponent<Rigidbody2D>().drag = 0f;
-            player.GetComponent<Animator>().speed = 1f;
-        }
+        //if(fadeTimer > 0)
+        //{
+        //    if (fadeOut)
+        //        Fade(0.1f);
+        //    else if (!fadeOut)
+        //        Fade(-0.1f);
+        //    Debug.Log("Calling it");
+        //}
+        //else
+        //{
+        //    player.GetComponent<Platformer2DUserControl>().acceptInputs = true;
+        //    player.GetComponent<Rigidbody2D>().drag = 0f;
+        //    player.GetComponent<Animator>().speed = 1f;
+        //}
     }
 
     /// <summary>
@@ -143,7 +144,7 @@ public class MainController : MonoBehaviour
             //Debug.Log(player.transform.position.y);
             if (player.transform.position.y < -10.5f)
             {
-                player.transform.position = new Vector2(1f, -10.41074f);
+                
                 fadeTimer = 60;
             }
             else
@@ -169,14 +170,18 @@ public class MainController : MonoBehaviour
     void Fade(float upOrDown)
     {
         Debug.Log("Fading");
-        if (upOrDown != 0.0f || upOrDown <= 1.0f)
+        if (cameraChild.color.a >= 0.0f && cameraChild.color.a < 1.0f)
         {
-            cameraChild.color = new Color(0, 0, 0, cameraChild.color.a - upOrDown);
+            cameraChild.color = new Color(0, 0, 0, cameraChild.color.a + upOrDown);
         }
         else
         {
+            if (cameraChild)
+            player.transform.position = new Vector2(1f, -10.41074f);
             fadeOut = true;
+            cameraChild.color = new Color(0, 0, 0, cameraChild.color.a + upOrDown);
         }
+
         fadeTimer--;
     }
 
