@@ -886,7 +886,7 @@ MonoBehaviour:
   player: {fileID: 0}
   nonPlayers: []
   dialogue: {fileID: 0}
-  camera: {fileID: 0}
+  camera: {fileID: 1540748427}
 --- !u!114 &1257917987
 MonoBehaviour:
   m_ObjectHideFlags: 0
