@@ -12,9 +12,6 @@ TagManager:
   - Item
   - floor
   - NPC
-  - elevator
-  - interactable
-  - controller
   layers:
   - Default
   - TransparentFX
@@ -25,7 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  -
   - 
   - 
   - 

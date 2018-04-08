@@ -32,29 +32,6 @@ public class PlayerInteractions : MonoBehaviour {
     {
         ChangeMentalStates(-1, -1);
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        switch (collision.gameObject.tag)
-        {
-            case "interactable":
-
-                if (collision.gameObject.name.Contains("elevator"))
-                {
-                    GameObject.FindGameObjectWithTag("controller").GetComponent<MainController>().UseElevator();
-                }
-                else if (collision.gameObject.name.Contains("ladder"))
-                {
-
-                }
-                break;
-            case "floor":
-
-                break;
-            default:
-                Debug.Log("GOT HJERE");
-                break;
-        }
-    }
 
     public void ChangeMentalStates(float hapVal, float engVal)
     {
