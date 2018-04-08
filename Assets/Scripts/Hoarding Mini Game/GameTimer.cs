@@ -39,6 +39,7 @@ public class GameTimer : MonoBehaviour {
     void HandleSecondsChanged(int secondsRemaining)
     {
         timeLeft = secondsRemaining;
+        Debug.Log(timeLeft.ToString());
     }
 
 }
