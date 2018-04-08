@@ -1,11 +1,12 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets._2D;
 
 public class MainController : MonoBehaviour
 {
-    
+
     public GameObject player;
     public GameObject[] nonPlayers;
     public Dialogues dialogue;
@@ -19,7 +20,7 @@ public class MainController : MonoBehaviour
     private Timer timer = new Timer();
     private GameObject[] interactableEnvironment;
     private SpriteRenderer cameraChild;
-    
+
 
     // text stuff
 
@@ -31,7 +32,8 @@ public class MainController : MonoBehaviour
     /// </summary>
 
     // Use this for initialization
-    void Awake () {
+    void Awake()
+    {
         callOnce = 5;
         fadeTimer = 60;
         fadeOut = false;
@@ -41,15 +43,16 @@ public class MainController : MonoBehaviour
         SetNonPlayers();
         dialogue.SetupEverything();
         cameraChild = camera.transform.GetChild(0).GetComponent<SpriteRenderer>();
-    } 
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         timer.Update();
         NPCInteraction();
-        if(callOnce > 0)
+        if (callOnce > 0)
             callOnce--;
-        if(dialogue.isSetup && !setupOnce)
+        if (dialogue.isSetup && !setupOnce)
         {
             NewDay();
             setupOnce = true;
@@ -68,16 +71,16 @@ public class MainController : MonoBehaviour
             }
         }
 
-        if(fadeTimer > 0)
+        if (fadeTimer > 0)
         {
-            if(fadeOut)
+            if (fadeOut)
                 Fade(0.1f);
             Debug.Log("Calling it");
         }
 
         if (true)
         {
-            player.GetComponent<Platformer2DUserControl>().acceptInputs = true;
+            //player.GetComponent<Platformer2DUserControl>().acceptInputs = true;
             player.GetComponent<Rigidbody2D>().drag = 0f;
             player.GetComponent<Animator>().speed = 1f;
         }
@@ -133,10 +136,10 @@ public class MainController : MonoBehaviour
 
     public void UseElevator()
     {
-        if(CheckInputs() == 0 && callOnce == 0)
+        if (CheckInputs() == 0 && callOnce == 0)
         {
             Debug.Log(player.GetComponent<Animator>().speed);
-            player.GetComponent<Platformer2DUserControl>().acceptInputs = false;
+            //player.GetComponent<Platformer2DUserControl>().acceptInputs = false;
             player.GetComponent<Rigidbody2D>().drag = 1000f;
             player.GetComponent<Animator>().speed = 0;
             Fade(0.05f);
@@ -150,7 +153,7 @@ public class MainController : MonoBehaviour
             {
                 player.transform.position = new Vector2(1f, -12.135f);
             }
-            
+
             //Fade(0.1f);
             callOnce = 5;
         }

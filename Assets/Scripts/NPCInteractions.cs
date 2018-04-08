@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCInteractions : MonoBehaviour {
+public class NPCInteractions : MonoBehaviour
+{
     int value;
     private bool isTriggered = false;
     private string currentMinigame;
@@ -52,11 +53,12 @@ public class NPCInteractions : MonoBehaviour {
         silhouette = child.GetComponent<SpriteRenderer>();
         ChangeMentalState(0);
     }
-	
-	// Update is called once per frame
-	void Update() {
+
+    // Update is called once per frame
+    void Update()
+    {
         ChangeMentalState(-1f);
-	}
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -68,10 +70,10 @@ public class NPCInteractions : MonoBehaviour {
     }
     public void NewDaySetup()
     {
-        value =  Random.Range(0, possibleMinigames.Length);
+        value = Random.Range(0, possibleMinigames.Length);
 
         currentMinigame = possibleMinigames[value];
-        
+
         currentConversation = new string[conversations.GetUpperBound(1)];
         //Debug.Log(conversations.Length);
         for (int i = 0; i < currentConversation.Length; i++)
@@ -79,18 +81,18 @@ public class NPCInteractions : MonoBehaviour {
             //Debug.Log(value);
             currentConversation[i] = conversations[0, i];
         }
-        
-        
-        
+
+
+
     }
 
     public void ChangeMentalState(float hapVal)
     {
         happiness += hapVal;
-        if(happiness < 0)
+        if (happiness < 0)
         {
             happiness = 0;
-            
+
         }
         silhouette.color = new Color(silhouette.color.r, silhouette.color.g, silhouette.color.b, happiness / 100);
     }

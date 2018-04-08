@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dialogues : MonoBehaviour {
+public class Dialogues : MonoBehaviour
+{
 
     public GameObject joeJones;
     public GameObject elizabeth;
@@ -10,16 +11,17 @@ public class Dialogues : MonoBehaviour {
     public GameObject fuyumi;
     public bool isSetup;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         isSetup = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void SetupEverything()
     {
@@ -36,11 +38,11 @@ public class Dialogues : MonoBehaviour {
         string[,] conversation = joeJones.GetComponent<NPCInteractions>().Conversations;
         conversation = new string[1, 7]{
             { "Hey...have you seen my Super Beaver Man Volume 2...",
-                "No/Well maybe it's lost in your house?", 
+                "No/Well maybe it's lost in your house?",
                 "Okay bye/What do you mean?", /*Okay bye ends dialogue*/
                 "Explain in Detail.../I'll organize for you and you'll see",
                 "You're right/Thanks", /*Thanks ends dialogue and starts minigame*/
-                "I can help if you'd like/Okay, good luck!", 
+                "I can help if you'd like/Okay, good luck!",
                 "Okay that makes sense, let's do this/Thanks, I appreciate it!" /*okay, let's do this ends dialogue and starts minigame */}
         };
         joeJones.GetComponent<NPCInteractions>().Conversations = conversation;
@@ -51,8 +53,8 @@ public class Dialogues : MonoBehaviour {
     public void SetupElizabeth()
     {
         string[,] conversation = elizabeth.GetComponent<NPCInteractions>().Conversations;
-        conversation = new string[1, 8] 
-        { 
+        conversation = new string[1, 8]
+        {
             { "'Scuse me young man, have you seen my cat, My.Snugglesworth",
                 "Sorry, I haven't seen him/No, but what does it look like?",
                 "Oh Mr.Snugglesworth, where are you....",
@@ -61,7 +63,7 @@ public class Dialogues : MonoBehaviour {
                 "Well he hasn't eaten in a dayy...I forgot to feed him/Oh! Thank you so much!",
                 "I'll help you find him, buut you can't stop feeding him/Maybe if you bring out food he'll come back.",
                 "You're right I'll be more particular next time. Thank you/Thank you, you're a doll!" }
-        } ;
+        };
         elizabeth.GetComponent<NPCInteractions>().Conversations = conversation;
         elizabeth.GetComponent<NPCInteractions>().NewDaySetup();
     }

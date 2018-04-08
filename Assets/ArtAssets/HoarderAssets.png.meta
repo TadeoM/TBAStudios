@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c1b4df4d9091738428f14622ba3ad430
-timeCreated: 1523197356
+timeCreated: 1523205784
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -21,6 +21,8 @@ TextureImporter:
     21300028: HoarderAssets_14
     21300030: HoarderAssets_15
     21300032: HoarderAssets_16
+    21300034: HoarderAssets_17
+    21300036: HoarderAssets_18
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -335,6 +337,34 @@ TextureImporter:
         y: 96
         width: 16
         height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HoarderAssets_17
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 86
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HoarderAssets_18
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 88
+        width: 19
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

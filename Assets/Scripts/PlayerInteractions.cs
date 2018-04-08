@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteractions : MonoBehaviour {
+public class PlayerInteractions : MonoBehaviour
+{
     private float happiness;
     private float energy;
     private SpriteRenderer silhouette;
@@ -22,7 +23,8 @@ public class PlayerInteractions : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         happiness = 100;
         energy = 100;
         child = transform.GetChild(0);
@@ -65,7 +67,7 @@ public class PlayerInteractions : MonoBehaviour {
         {
             happiness = 0;
         }
-        if(energy < 0)
+        if (energy < 0)
         {
             energy = 0;
         }
