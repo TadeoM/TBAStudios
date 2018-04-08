@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Box
+  - Hand
+  - Placeholder1
+  - Placeholder2
+  - HoarderTime
+  - Item
+  - floor
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -14,7 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  -
   - 
   - 
   - 
