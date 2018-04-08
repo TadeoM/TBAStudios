@@ -11,7 +11,7 @@ public class Cutting : MonoBehaviour {
     private int currCutPoint;
     private int currCutItem;
     private bool end_minigame;
-    private float knifeSpeed = 0.01f;
+    public float knifeSpeed = 0.01f;
     private Vector3 initialKnifePos;
 
     private int score;
@@ -52,8 +52,8 @@ public class Cutting : MonoBehaviour {
     {
         //end game
         Debug.Log("Kinves Down!");
-        //end_minigame = true;
-        //GameManager.Instance.CookingScore += score;
+        end_minigame = true;
+        GameManager.Instance.CookingScore += score;
         //add transition to main game from minigame
     }
 
@@ -80,65 +80,68 @@ public class Cutting : MonoBehaviour {
         }
 
         //Cut Item on mouse click, if there is an item on the cut board (i.e. !end_minigame)
-        if (Input.GetMouseButtonDown(0) && !end_minigame)
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))
         {
-            // Check if knife is over item
-            if (transform.position.x > cutItems.GetChild(currCutItem).GetComponent<SpriteRenderer>().bounds.min.x && transform.position.x < cutItems.GetChild(currCutItem).GetComponent<SpriteRenderer>().bounds.max.x)
+            if (!end_minigame)
             {
-                //increment score
-                score += 1;
-
-                //Create new cut line
-                Transform newCut = Instantiate(cutLinePrefab);
-                newCut.position = transform.position;
-                //Make it a child of the item
-                newCut.parent = cutItems.GetChild(currCutItem).GetChild(1);
-                //Get cut points
-                Transform cutPoints = cutItems.GetChild(currCutItem).GetChild(0);
-
-                //Child 0 should be the cut points
-                cutItems.GetChild(currCutItem).GetChild(0).GetChild(currCutPoint).gameObject.SetActive(false);
-
-                if (newCut.position.x >= cutPoints.GetChild(currCutPoint).position.x - 0.02f && newCut.position.x <= cutPoints.GetChild(currCutPoint).position.x + 0.02f)
+                // Check if knife is over item
+                if (transform.position.x > cutItems.GetChild(currCutItem).GetComponent<SpriteRenderer>().bounds.min.x && transform.position.x < cutItems.GetChild(currCutItem).GetComponent<SpriteRenderer>().bounds.max.x)
                 {
-                    //increment score for accuracy
+                    //increment score
                     score += 1;
-                }
 
-                //next cut point
-                currCutPoint++;
+                    //Create new cut line
+                    Transform newCut = Instantiate(cutLinePrefab);
+                    newCut.position = transform.position;
+                    //Make it a child of the item
+                    newCut.parent = cutItems.GetChild(currCutItem).GetChild(1);
+                    //Get cut points
+                    Transform cutPoints = cutItems.GetChild(currCutItem).GetChild(0);
 
-                //check if item fully sliced
-                if (currCutPoint == cutPoints.childCount)
-                {
-                    //Hide chopped up items
-                    cutItems.GetChild(currCutItem).gameObject.SetActive(false);
+                    //Child 0 should be the cut points
+                    cutItems.GetChild(currCutItem).GetChild(0).GetChild(currCutPoint).gameObject.SetActive(false);
 
-                    cutItems.GetChild(currCutItem).GetChild(2).parent = cookPot;
-                    cookPot.GetChild(currCutItem).localPosition = new Vector3(0,0,0);
-                    //show diced items in pot
-                    cookPot.GetChild(currCutItem).gameObject.SetActive(true);
-
-                    //next item
-                    currCutItem++;
-
-                    //check if last item
-                    if (currCutItem == cutItems.childCount)
+                    if (newCut.position.x >= cutPoints.GetChild(currCutPoint).position.x - 0.02f && newCut.position.x <= cutPoints.GetChild(currCutPoint).position.x + 0.02f)
                     {
-                        //end game
-                        end_minigame = true;
-                        //GameManager.Instance.CookingScore +=score;
-                        //add transition to main game from minigame
+                        //increment score for accuracy
+                        score += 1;
                     }
-                    else
+
+                    //next cut point
+                    currCutPoint++;
+
+                    //check if item fully sliced
+                    if (currCutPoint == cutPoints.childCount)
                     {
-                        //show next item to be cut
-                        cutItems.GetChild(currCutItem).gameObject.SetActive(true);
-                        currCutPoint = 0;
+                        //Hide chopped up items
+                        cutItems.GetChild(currCutItem).gameObject.SetActive(false);
+
+                        cutItems.GetChild(currCutItem).GetChild(2).parent = cookPot;
+                        cookPot.GetChild(currCutItem).localPosition = new Vector3(0, 0, 0);
+                        //show diced items in pot
+                        cookPot.GetChild(currCutItem).gameObject.SetActive(true);
+
+                        //next item
+                        currCutItem++;
+
+                        //check if last item
+                        if (currCutItem == cutItems.childCount)
+                        {
+                            //end game
+                            end_minigame = true;
+                            GameManager.Instance.CookingScore += score;
+                            Debug.Log(GameManager.Instance.CookingScore);
+                            //add transition to main game from minigame
+                        }
+                        else
+                        {
+                            //show next item to be cut
+                            cutItems.GetChild(currCutItem).gameObject.SetActive(true);
+                            currCutPoint = 0;
+                        }
                     }
                 }
             }
-            
         }
 	}
     

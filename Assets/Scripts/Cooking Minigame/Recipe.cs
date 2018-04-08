@@ -71,7 +71,7 @@ public class Recipe : MonoBehaviour
                 {
                     this.gameObject.SetActive(false);
                     Debug.Log(score);
-                    //GameManager.Instance.CookingScore += score;
+                    GameManager.Instance.CookingScore += score;
                     //If we want to have a Transition screen, set active transition screen instead of knife
                     knife.SetActive(true);
                 }
