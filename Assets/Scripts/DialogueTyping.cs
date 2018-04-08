@@ -64,6 +64,8 @@ public class DialogueTyping : MonoBehaviour {
 
     int line;
 
+    bool finish;
+
     // Use this for initialization
     void Start() {
         
@@ -119,6 +121,8 @@ public class DialogueTyping : MonoBehaviour {
         }
         */
         SetUp();
+
+        finish = true;
     }
 	
 	// Update is called once per frame
@@ -153,6 +157,51 @@ public class DialogueTyping : MonoBehaviour {
         }
         */
         GamePlay();
+
+        if (poem[2].text != "" && finish)
+        {
+            for (int i = 0; i < charsWhiteSun.Count; i++)
+            {
+                Destroy(charsWhiteSun[i]);
+            }
+
+            for (int i = 0; i < charsBlackSun.Count; i++)
+            {
+                Destroy(charsBlackSun[i]);
+            }
+
+            for (int i = 0; i < charsWhiteStar.Count; i++)
+            {
+                Destroy(charsWhiteStar[i]);
+            }
+
+            for (int i = 0; i < charsBlackStar.Count; i++)
+            {
+                Destroy(charsBlackStar[i]);
+            }
+
+            for (int i = 0; i < charsWhiteBonfire.Count; i++)
+            {
+                Destroy(charsWhiteBonfire[i]);
+            }
+
+            for (int i = 0; i < charsBlackBonfire.Count; i++)
+            {
+                Destroy(charsBlackBonfire[i]);
+            }
+
+            for (int i = 0; i < charsWhiteCandle.Count; i++)
+            {
+                Destroy(charsWhiteCandle[i]);
+            }
+
+            for (int i = 0; i < charsBlackCandle.Count; i++)
+            {
+                Destroy(charsBlackCandle[i]);
+            }
+
+            finish = false;
+        }
     }
 
     void GamePlay()
@@ -311,11 +360,21 @@ public class DialogueTyping : MonoBehaviour {
         }
         */
 
+        charPosSun = 0;
+        charPosStar = 0;
+        charPosBonfire = 0;
+        charPosCandle = 0;
+
         wordSun = linesSun[line];
 
         for (int i = 0; i < charsWhiteSun.Count; i++)
         {
             Destroy(charsWhiteSun[i]);
+        }
+
+        for (int i = 0; i < charsBlackSun.Count; i++)
+        {
+            Destroy(charsBlackSun[i]);
         }
 
         charsBlackSun = new List<Text>();
@@ -352,6 +411,11 @@ public class DialogueTyping : MonoBehaviour {
             Destroy(charsWhiteStar[i]);
         }
 
+        for (int i = 0; i < charsBlackStar.Count; i++)
+        {
+            Destroy(charsBlackStar[i]);
+        }
+
         charsBlackStar = new List<Text>();
         charsWhiteStar = new List<Text>();
 
@@ -386,6 +450,11 @@ public class DialogueTyping : MonoBehaviour {
             Destroy(charsWhiteBonfire[i]);
         }
 
+        for (int i = 0; i < charsBlackBonfire.Count; i++)
+        {
+            Destroy(charsBlackBonfire[i]);
+        }
+
         charsBlackBonfire = new List<Text>();
         charsWhiteBonfire = new List<Text>();
 
@@ -418,6 +487,11 @@ public class DialogueTyping : MonoBehaviour {
         for (int i = 0; i < charsWhiteCandle.Count; i++)
         {
             Destroy(charsWhiteCandle[i]);
+        }
+
+        for (int i = 0; i < charsBlackCandle.Count; i++)
+        {
+            Destroy(charsBlackCandle[i]);
         }
 
         charsBlackCandle = new List<Text>();
