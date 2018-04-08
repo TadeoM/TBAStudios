@@ -401,8 +401,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 290147989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62, y: 4.85, z: 90}
-  m_LocalScale: {x: 0.022352174, y: 0.022352174, z: 0.022352174}
+  m_LocalPosition: {x: 0.62, y: 10, z: 90}
+  m_LocalScale: {x: 0.0258772, y: 0.0258772, z: 0.0258772}
   m_Children:
   - {fileID: 685363464}
   - {fileID: 228743535}
@@ -1151,7 +1151,6 @@ MonoBehaviour:
   player: {fileID: 0}
   nonPlayers: []
   dialogue: {fileID: 0}
-  camera: {fileID: 1540748427}
 --- !u!114 &1257917987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,10 +1162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dfa0307aa4df6e4c9d43d7af08db2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joeJones: {fileID: 2094853211}
-  elizabeth: {fileID: 863217938}
-  jonDoe: {fileID: 716411826}
-  fuyumi: {fileID: 784121034}
+  joeJones: {fileID: 0}
+  elizabeth: {fileID: 0}
+  jonDoe: {fileID: 0}
+  fuyumi: {fileID: 0}
   isSetup: 0
 --- !u!1001 &1310521095
 Prefab:
@@ -1268,6 +1267,7 @@ GameObject:
   - component: {fileID: 1540748429}
   - component: {fileID: 1540748428}
   - component: {fileID: 1540748432}
+  - component: {fileID: 1540748433}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1331,7 +1331,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1540748427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62, y: 4.85, z: -10}
+  m_LocalPosition: {x: 0.62, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1145934741}
@@ -1354,6 +1354,20 @@ MonoBehaviour:
   lookAheadFactor: 3
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
+--- !u!114 &1540748433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1540748427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d0d21cfc55f7c4887849c7459ed13a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minBounds: {x: -9, y: 10}
+  maxBounds: {x: 9, y: -10}
+  bottomOfApartment: -7.8
 --- !u!1 &1583676271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1390,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583676271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.33, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1149123471}
