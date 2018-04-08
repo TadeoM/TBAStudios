@@ -62,6 +62,10 @@ public class NPCInteractions : MonoBehaviour {
     {
         isTriggered = true;
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isTriggered = false;
+    }
     public void NewDaySetup()
     {
         value =  Random.Range(0, possibleMinigames.Length);
@@ -72,8 +76,8 @@ public class NPCInteractions : MonoBehaviour {
         //Debug.Log(conversations.Length);
         for (int i = 0; i < currentConversation.Length; i++)
         {
-            Debug.Log(value);
-            currentConversation[i] = conversations[value, i];
+            //Debug.Log(value);
+            currentConversation[i] = conversations[0, i];
         }
         
         
