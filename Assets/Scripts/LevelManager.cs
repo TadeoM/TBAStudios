@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
-    static LevelManager Instance;
+    public static LevelManager Instance;
 
     public enum Level { MainMenu, Game, CatMiniGame, CuttingMiniGame, DialogMiniGame, HoardingMiniGame, Credits }
 

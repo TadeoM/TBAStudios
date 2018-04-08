@@ -44,15 +44,18 @@ public class Cutting : MonoBehaviour {
         timer.StartTimer();
     }
 	
-    public int getScore()
+    public int GetScore()
     {
         return score;
     }
 
     void HandleTimeUp()
     {
-        Debug.Log("Time is up!");
+        //end game
+        Debug.Log("Kinves Down!");
         end_minigame = true;
+        GameManager.Instance.SetCookingScore(score);
+        //add transition to main game from minigame
     }
 
     void HandleSecondsChanged(int secondsRemaining)
@@ -122,6 +125,8 @@ public class Cutting : MonoBehaviour {
                     {
                         //end game
                         end_minigame = true;
+                        GameManager.Instance.AddCookingScore(score);
+                        //add transition to main game from minigame
                     }
                     else
                     {
