@@ -66,6 +66,11 @@ public class DialogueTyping : MonoBehaviour {
 
     bool finish;
 
+    int sunCompletion = 0;
+    int starCompletion = 0;
+    int bonfireCompletion = 0;
+    int candleCompletion = 0;
+
     // Use this for initialization
     void Start() {
         
@@ -200,6 +205,26 @@ public class DialogueTyping : MonoBehaviour {
                 Destroy(charsBlackCandle[i]);
             }
 
+            if(sunCompletion == 3)
+            {
+                Debug.Log("Completed Sun");
+            }
+
+            if (starCompletion == 3)
+            {
+                Debug.Log("Completed Star");
+            }
+
+            if (bonfireCompletion == 3)
+            {
+                Debug.Log("Completed Bonfire");
+            }
+
+            if (candleCompletion == 3)
+            {
+                Debug.Log("Completed Candle");
+            }
+
             finish = false;
         }
     }
@@ -227,6 +252,7 @@ public class DialogueTyping : MonoBehaviour {
             poem[line].text = linesSun[line];
 
             line++;
+            sunCompletion++;
 
             if (line < linesSun.Length)
             {
@@ -257,6 +283,7 @@ public class DialogueTyping : MonoBehaviour {
             poem[line].text = linesStar[line];
 
             line++;
+            starCompletion++;
 
             if (line < linesStar.Length)
             {
@@ -286,6 +313,7 @@ public class DialogueTyping : MonoBehaviour {
             poem[line].text = linesBonfire[line];
 
             line++;
+            bonfireCompletion++;
 
             if (line < linesBonfire.Length)
             {
@@ -316,6 +344,7 @@ public class DialogueTyping : MonoBehaviour {
             poem[line].text = linesCandle[line];
 
             line++;
+            candleCompletion++;
 
             if (line < linesCandle.Length)
             {
