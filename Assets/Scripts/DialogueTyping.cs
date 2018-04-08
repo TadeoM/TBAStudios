@@ -365,6 +365,57 @@ public class DialogueTyping : MonoBehaviour {
         charPosBonfire = 0;
         charPosCandle = 0;
 
+        Vector3[] charBlackWhite = new Vector3[8];
+        charBlackWhite[0] = charBlackSun.transform.position;
+        charBlackWhite[1] = charWhiteSun.transform.position;
+        charBlackWhite[2] = charBlackStar.transform.position;
+        charBlackWhite[3] = charWhiteStar.transform.position;
+        charBlackWhite[4] = charBlackBonfire.transform.position;
+        charBlackWhite[5] = charWhiteBonfire.transform.position;
+        charBlackWhite[6] = charBlackCandle.transform.position;
+        charBlackWhite[7] = charWhiteCandle.transform.position;
+
+        int[] newPos = new int[4];
+
+        newPos[0] = Random.Range(0, 4);
+        newPos[1] = Random.Range(0,4);
+        newPos[2] = Random.Range(0,4);
+        newPos[3] = Random.Range(0,4);
+
+        while(newPos[1] == newPos[0])
+        {
+            newPos[1] = Random.Range(0, 4);
+        }
+
+        while(newPos[2] == newPos[1] || newPos[2] == newPos[0])
+        {
+            newPos[2] = Random.Range(0, 4);
+        }
+
+        while(newPos[3] == newPos[2] || newPos[3] == newPos[1] || newPos[3] == newPos[0])
+        {
+            newPos[3] = Random.Range(0, 4);
+
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            newPos[i] = newPos[i] * 2;
+            Debug.Log(newPos[i]);
+        }
+
+        posBlackSun = charBlackWhite[newPos[0]];
+        posWhiteSun = charBlackWhite[newPos[0] + 1];
+
+        posBlackStar = charBlackWhite[newPos[1]];
+        posWhiteStar = charBlackWhite[newPos[1] + 1];
+
+        posBlackBonfire = charBlackWhite[newPos[2]];
+        posWhiteBonfire = charBlackWhite[newPos[2] + 1];
+
+        posBlackCandle = charBlackWhite[newPos[3]];
+        posWhiteCandle = charBlackWhite[newPos[3] + 1];
+
         wordSun = linesSun[line];
 
         for (int i = 0; i < charsWhiteSun.Count; i++)
@@ -379,9 +430,6 @@ public class DialogueTyping : MonoBehaviour {
 
         charsBlackSun = new List<Text>();
         charsWhiteSun = new List<Text>();
-
-        posBlackSun = charBlackSun.transform.position;
-        posWhiteSun = charWhiteSun.transform.position;
 
         for (int i = 0; i < wordSun.Length; i++)
         {
@@ -419,9 +467,6 @@ public class DialogueTyping : MonoBehaviour {
         charsBlackStar = new List<Text>();
         charsWhiteStar = new List<Text>();
 
-        posBlackStar = charBlackStar.transform.position;
-        posWhiteStar = charWhiteStar.transform.position;
-
         for (int i = 0; i < wordStar.Length; i++)
         {
             posBlackStar.x += spacing;
@@ -458,9 +503,6 @@ public class DialogueTyping : MonoBehaviour {
         charsBlackBonfire = new List<Text>();
         charsWhiteBonfire = new List<Text>();
 
-        posBlackBonfire = charBlackBonfire.transform.position;
-        posWhiteBonfire = charWhiteBonfire.transform.position;
-
         for (int i = 0; i < wordBonfire.Length; i++)
         {
             posBlackBonfire.x += spacing;
@@ -496,9 +538,6 @@ public class DialogueTyping : MonoBehaviour {
 
         charsBlackCandle = new List<Text>();
         charsWhiteCandle = new List<Text>();
-
-        posBlackCandle = charBlackCandle.transform.position;
-        posWhiteCandle = charWhiteCandle.transform.position;
 
         for (int i = 0; i < wordCandle.Length; i++)
         {
