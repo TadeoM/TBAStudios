@@ -46,11 +46,8 @@ public class PlayerInteractions : MonoBehaviour
                 }
                 else if (collision.gameObject.name.Contains("ladder"))
                 {
-
+                    
                 }
-                break;
-            case "floor":
-
                 break;
             default:
                 Debug.Log("GOT HJERE");
