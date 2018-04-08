@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutItems: {fileID: 403132418}
-  knife: {fileID: 0}
+  knife: {fileID: 97968025}
   numItems: 4
   itemsSelected: []
 --- !u!1 &553135939 stripped
