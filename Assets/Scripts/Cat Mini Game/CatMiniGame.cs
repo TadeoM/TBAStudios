@@ -42,7 +42,7 @@ public class CatMiniGame : MonoBehaviour {
         // Dev controls
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SetTargetCat(CatColor.Brown);
+            SetTargetCat(CatColor.Grey);
         }
 
     }
