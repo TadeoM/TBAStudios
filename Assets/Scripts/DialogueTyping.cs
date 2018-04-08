@@ -71,6 +71,12 @@ public class DialogueTyping : MonoBehaviour {
     int bonfireCompletion = 0;
     int candleCompletion = 0;
 
+    public GameObject[] sunPaints = new GameObject[4];
+    public GameObject[] starPaints = new GameObject[4];
+    public GameObject[] bonfirePaints = new GameObject[4];
+    public GameObject[] candlePaints = new GameObject[4];
+
+
     // Use this for initialization
     void Start() {
         
@@ -205,7 +211,27 @@ public class DialogueTyping : MonoBehaviour {
                 Destroy(charsBlackCandle[i]);
             }
 
-            if(sunCompletion == 3)
+            if(sunCompletion > 0)
+            {
+                Instantiate(sunPaints[sunCompletion]);
+            }
+
+            if (starCompletion > 0)
+            {
+                Instantiate(starPaints[starCompletion]);
+            }
+
+            if (bonfireCompletion > 0)
+            {
+                Instantiate(bonfirePaints[bonfireCompletion]);
+            }
+
+            if (candleCompletion > 0)
+            {
+                Instantiate(candlePaints[candleCompletion]);
+            }
+
+            if (sunCompletion == 3)
             {
                 Debug.Log("Completed Sun");
             }
@@ -430,7 +456,6 @@ public class DialogueTyping : MonoBehaviour {
         for (int i = 0; i < 4; i++)
         {
             newPos[i] = newPos[i] * 2;
-            Debug.Log(newPos[i]);
         }
 
         posBlackSun = charBlackWhite[newPos[0]];
