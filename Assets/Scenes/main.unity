@@ -418,7 +418,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4454054311143816, guid: 86bdbb2619f551b408a4492d67b6104f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -10.11
+      value: -11.88
       objectReference: {fileID: 0}
     - target: {fileID: 4454054311143816, guid: 86bdbb2619f551b408a4492d67b6104f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1149123471}
-  damping: 1
+  damping: 0.1
   lookAheadFactor: 3
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
