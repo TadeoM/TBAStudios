@@ -15,7 +15,7 @@ public class Cat : MonoBehaviour {
     public AudioClip[] dissatisfiedSounds;
     public AudioClip[] satisfiedSounds;
 
-    enum CatSpeed { Slow = 1, Normal = 2, Fast = 3, Max}
+    enum CatSpeed { Slow = 1, Normal = 2, Fast = 3, Max = 5}
     CatSpeed speedMod = CatSpeed.Normal;
     Vector3 targetPosition;
     AudioSource audioSource;
