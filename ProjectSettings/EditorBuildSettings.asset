@@ -9,5 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/main.unity
     guid: 80826ceded92310438c3b15f9a3eaf64
   - enabled: 1
-    path: Assets/Cat Mini Game/Cat Mini Game.unity
+    path: Assets/Scenes/Cat Mini Game.unity
     guid: 54f81bb942ab4e642bb2c487b777dc76
+  - enabled: 1
+    path: Assets/Scenes/Cooking Mini Game.unity
+    guid: 8c4a5ae65663373439b18f01f307cb35
+  - enabled: 1
+    path: Assets/Scenes/DialogueType Mini Game.unity
+    guid: fccab5fd14cbe5a429ce3716127a892e
+  - enabled: 1
+    path: Assets/Scenes/Hoarding Mini Game.unity
+    guid: f5e15ffb754c5fa4e9fd9f83b06c50a5
