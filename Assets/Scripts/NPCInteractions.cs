@@ -5,10 +5,13 @@ using UnityEngine;
 public class NPCInteractions : MonoBehaviour
 {
     int value;
+    public int convoIndex = 0;
     private bool isTriggered = false;
     private string currentMinigame;
     public string[] possibleMinigames;
-    private float happiness;
+    [SerializeField] private float happiness;
+    private float maxHappiness = 100;
+    
     private SpriteRenderer silhouette;
     private Transform child;
     private string[,] conversations;
@@ -48,16 +51,10 @@ public class NPCInteractions : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        happiness = 100;
+        happiness = 0;
         child = transform.GetChild(0);
         silhouette = child.GetComponent<SpriteRenderer>();
         ChangeMentalState(0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        ChangeMentalState(-1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -86,14 +83,17 @@ public class NPCInteractions : MonoBehaviour
 
     }
 
-    public void ChangeMentalState(float hapVal)
+    public void ChangeMentalState(int hapVal)
     {
-        happiness += hapVal;
+        happiness += hapVal * 10;
         if (happiness < 0)
         {
             happiness = 0;
-
         }
-        silhouette.color = new Color(silhouette.color.r, silhouette.color.g, silhouette.color.b, happiness / 100);
+        else if(happiness > 100)
+        {
+            happiness = 100;
+        }
+        silhouette.color = new Color(silhouette.color.r, silhouette.color.g, silhouette.color.b, happiness / maxHappiness);
     }
 }

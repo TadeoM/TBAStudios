@@ -19,7 +19,7 @@ public class CatMiniGame : MonoBehaviour {
     Timer timer;
 
     List<GameObject> cats = new List<GameObject>();
-    CatColor targetCatColor;
+    CatColor targetCatColor = CatColor.White;
 
 	void Start () {
         timer = new Timer();
@@ -29,8 +29,7 @@ public class CatMiniGame : MonoBehaviour {
 
         // Start the timer 
         InitTimer();
-
-        
+        SetTargetCat(CatColor.White);
     }
 
     private void Update()
@@ -42,10 +41,10 @@ public class CatMiniGame : MonoBehaviour {
         }
 
         // Dev controls
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            SetTargetCat(CatColor.Brown);
-        }
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    SetTargetCat(CatColor.White);
+        //}
 
     }
 

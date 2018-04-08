@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
+using DG.Tweening;
+using TMPro;
 using UnityStandardAssets._2D;
 
 public class MainController : MonoBehaviour
@@ -11,8 +13,11 @@ public class MainController : MonoBehaviour
     public GameObject[] nonPlayers;
     public Dialogues dialogue;
     public GameObject camera;
+    private bool displayText;
+    private bool inConversation;
     private int daysLeft = 7;
     private int fadeTimer;
+    private int currentNPC;
     private bool fadeOut;
     private int callOnce;
     private bool setupOnce = false;
@@ -34,6 +39,8 @@ public class MainController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        displayText = false;
+        inConversation = false;
         callOnce = 5;
         fadeTimer = 60;
         fadeOut = false;
@@ -57,6 +64,25 @@ public class MainController : MonoBehaviour
             NewDay();
             setupOnce = true;
         }
+
+        if(inConversation)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log(nonPlayerScripts[currentNPC].CurrentConversation[nonPlayerScripts[currentNPC].convoIndex]);
+                nonPlayerScripts[currentNPC].convoIndex++;
+                if (nonPlayerScripts[currentNPC].convoIndex > nonPlayerScripts[currentNPC].CurrentConversation.Length - 1)
+                {
+                    nonPlayerScripts[currentNPC].convoIndex = 0;
+                    inConversation = false;
+                    player.GetComponent<Platformer2DUserControl>().acceptInput = true;
+                    player.GetComponent<Animator>().speed = 1;
+                }
+                    
+            }
+        }
+        
+
         if (!timer.running)
         {
             switch (daysLeft)
@@ -69,20 +95,6 @@ public class MainController : MonoBehaviour
                     NewDay();
                     break;
             }
-        }
-
-        if (fadeTimer > 0)
-        {
-            if (fadeOut)
-                Fade(0.1f);
-            Debug.Log("Calling it");
-        }
-
-        if (true)
-        {
-            //player.GetComponent<Platformer2DUserControl>().acceptInputs = true;
-            player.GetComponent<Rigidbody2D>().drag = 0f;
-            player.GetComponent<Animator>().speed = 1f;
         }
     }
 
@@ -129,29 +141,58 @@ public class MainController : MonoBehaviour
         {
             if (nonPlayerScripts[i].IsTriggered && CheckInputs() == 0)
             {
-                Debug.Log(nonPlayers[i].gameObject.name + " We want to play " + nonPlayerScripts[i].CurrentMinigame + " minigame");
+                currentNPC = i;
+                inConversation = true;
+                player.GetComponent<Platformer2DUserControl>().acceptInput = false;
+                player.GetComponent<Animator>().speed = 0;
+                //for (int word = 0; word < nonPlayerScripts[i].Conversations.Length; word++)
+                //{
+                //    nonPlayerScripts[i].CurrentConversation[word] = nonPlayerScripts[i].Conversations[0, word];
+                //}
+
+                
+                //Debug.Log(nonPlayers[i].gameObject.name + " We want to play " + nonPlayerScripts[i].CurrentMinigame + " minigame");
+                GameManager.Instance.CurrentNPCScript = nonPlayerScripts[i];
             }
         }
     }
+    
 
     public void UseElevator()
     {
         if (CheckInputs() == 0 && callOnce == 0)
         {
             Debug.Log(player.GetComponent<Animator>().speed);
-            //player.GetComponent<Platformer2DUserControl>().acceptInputs = false;
-            player.GetComponent<Rigidbody2D>().drag = 1000f;
-            player.GetComponent<Animator>().speed = 0;
             Fade(0.05f);
-            //Debug.Log(player.transform.position.y);
-            if (player.transform.position.y < -10.5f)
+            int fadeTimer = 3000;
+
+            if (player.transform.position.y < -6.57f)
             {
-                player.transform.position = new Vector2(1f, -10.41074f);
+                player.transform.position = new Vector2(1f, -5.20f);
                 fadeTimer = 60;
+            }
+            else if (player.transform.position.x <= -7.5f && player.transform.position.y < -4.5f)
+            {
+                player.transform.position = new Vector2(-7.5f, -3f);
+            }
+            else if (player.transform.position.x <= -7.5f && player.transform.position.y < -2.971f)
+            {
+                player.transform.position = new Vector2(-7.5f, -5.20f);
+            }
+            else if (player.transform.position.x >= -2.384f && player.transform.position.y < -2.971f)
+            {
+                // -2.49  -0.9655123
+                player.transform.position = new Vector2(-2.49f, -0.96f);
+            }
+            // this elseif is broken
+            else if (player.transform.position.x <= -1.7f && player.transform.position.y > -1f)
+            {
+                // -2.49  -0.9655123
+                player.transform.position = new Vector2(-2.384f, -2.971f);
             }
             else
             {
-                player.transform.position = new Vector2(1f, -12.135f);
+                player.transform.position = new Vector2(1f, -6.547f);
             }
 
             //Fade(0.1f);
@@ -171,7 +212,15 @@ public class MainController : MonoBehaviour
     /// <param name="upOrDown"></param>
     void Fade(float upOrDown)
     {
-        Debug.Log("Fading");
+        Debug.Log("We in fade");
+        Sequence fadeSequence = DOTween.Sequence();
+
+        fadeSequence
+            .Append(cameraChild.DOFade(1, 0.25f))
+            .Append(cameraChild.DOFade(0, 0.5f))
+        ;
+        fadeSequence.Play();
+        /*Debug.Log("Fading");
         if (upOrDown != 0.0f || upOrDown <= 1.0f)
         {
             cameraChild.color = new Color(0, 0, 0, cameraChild.color.a - upOrDown);
@@ -180,7 +229,7 @@ public class MainController : MonoBehaviour
         {
             fadeOut = true;
         }
-        fadeTimer--;
+        fadeTimer--;*/
     }
 
     /// <summary>
@@ -188,10 +237,14 @@ public class MainController : MonoBehaviour
     /// </summary>
     int CheckInputs()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             //Debug.Log("Returning 0");
             return 0;
+        }
+        else if(Input.GetKey(KeyCode.F))
+        {
+            return 1;
         }
 
         //Debug.Log("Not returning 0");

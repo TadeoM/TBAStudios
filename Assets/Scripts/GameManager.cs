@@ -9,13 +9,34 @@ public class GameManager : MonoBehaviour
     private int cookingScore;
 
     public enum Kindness { Neutral, Ok, Good, Best };
+    
+    public int CookingScore
+    {
+        get
+        {
+            return cookingScore;
+        }
+        set
+        {
+            cookingScore = value;
+        }
+    }
+    private NPCInteractions currentNPCScript;
 
-    public Vector2 PlayerPos { get; set; }
-
-    public int CookingScore { get; set; }
+    public NPCInteractions CurrentNPCScript
+    {
+        get
+        {
+            return currentNPCScript;
+        }
+        set
+        {
+            currentNPCScript = value;
+        }
+    }
 
     //Custom get set
-    public Vector2 PlayerPos2 {
+    public Vector2 PlayerPos {
         get
         {
             return playerPos;

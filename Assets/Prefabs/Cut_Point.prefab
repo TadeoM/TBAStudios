@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1691597731878490}
+  m_RootGameObject: {fileID: 1381650371102466}
   m_IsPrefabParent: 1
---- !u!1 &1691597731878490
+--- !u!1 &1381650371102466
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4043049595591388}
-  - component: {fileID: 212601555863419738}
+  - component: {fileID: 4403315114800200}
+  - component: {fileID: 212007579924781680}
   m_Layer: 0
   m_Name: Cut_Point
   m_TagString: Untagged
@@ -27,25 +27,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4043049595591388
+--- !u!4 &4403315114800200
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1691597731878490}
+  m_GameObject: {fileID: 1381650371102466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.02, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &212601555863419738
+--- !u!212 &212007579924781680
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1691597731878490}
+  m_GameObject: {fileID: 1381650371102466}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: acdca1be369888b4c8bf326a10ea959b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.522}
   m_FlipX: 0
