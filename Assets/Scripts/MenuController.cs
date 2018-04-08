@@ -33,6 +33,10 @@ public class MenuController : MonoBehaviour {
         {
             ZoomToPlayer();
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SkipIntro();
+        }
     }
 
     public void PlayGame()
@@ -51,9 +55,27 @@ public class MenuController : MonoBehaviour {
         mainMenuSequence.Play().OnComplete(() => ZoomToPlayer());
     }
 
+    public void SkipIntro()
+    {
+        Sequence mainMenuSequence = DOTween.Sequence();
+
+        mainMenuSequence
+            .Append(playTextButton.DOFade(0, 1f))
+            .Join(title.DOFade(0, 3))
+            .Join(currentCamera.transform.DOMoveY(-2f, 5))
+            .Join(currentCamera.DOColor(nightTime, 5))
+            ;
+
+        //mainMenuSequence.Play().OnComplete(() => ZoomToPlayer());
+        mainMenuSequence.Goto(mainMenuSequence.Duration());
+        currentCamera.orthographicSize = 1.3f;
+        currentCamera.GetComponent<Camera2DFollow>().enabled = true;
+        playTextButton.GetComponent<Button>().interactable = false;
+    }
+
     public void ZoomToPlayer()
     {
-        DOTween.To(orthoSize => currentCamera.orthographicSize = orthoSize, 5.82f, 1.3f, 2).OnComplete(() => DOTween.CompleteAll());
+        DOTween.To(orthoSize => currentCamera.orthographicSize = orthoSize, 5.82f, 1.3f, 2);
         currentCamera.GetComponent<Camera2DFollow>().enabled=true;
         playTextButton.GetComponent<Button>().interactable = false;
         //transform.DOMove(GameObject.FindGameObjectWithTag("player").transform.Find("Camera Target").transform.position, 2);
