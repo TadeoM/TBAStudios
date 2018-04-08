@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CatColor { Grey, Orange, Black, Brown, White }
+public enum CatColor { Grey, Orange, Black, Spotted, White }
 
 public class CatMiniGame : MonoBehaviour {
 
@@ -44,7 +44,7 @@ public class CatMiniGame : MonoBehaviour {
         // Dev controls
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SetTargetCat(CatColor.Brown);
+            SetTargetCat(CatColor.Spotted);
         }
 
     }

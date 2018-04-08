@@ -68,12 +68,12 @@ public class Cat : MonoBehaviour {
 
     public void PlaySatisfied()
     {
-        audioSource.PlayOneShot(satisfiedSounds[Random.Range(0,satisfiedSounds.Length-1)]);
+        //audioSource.PlayOneShot(satisfiedSounds[Random.Range(0,satisfiedSounds.Length-1)]);
     }
 
     public void PlayDissatisfied()
     {
-        audioSource.PlayOneShot(dissatisfiedSounds[Random.Range(0, dissatisfiedSounds.Length-1)]);
+        //audioSource.PlayOneShot(dissatisfiedSounds[Random.Range(0, dissatisfiedSounds.Length-1)]);
 
     }
 }
