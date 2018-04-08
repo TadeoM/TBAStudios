@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HoarderHand : MonoBehaviour {
 
-    private int itemsToSteal = 10;
+    private int itemsToSteal = 6;
     private OrganizeBox target;
     private CurrentItem currItem;
     private Vector3 placehold1;
@@ -18,6 +18,7 @@ public class HoarderHand : MonoBehaviour {
     private bool handMovingBack;
     [SerializeField] private int SPEED;
     [SerializeField] private GameObject currItemObject;
+    
 
     public OrganizeBox Target
     {
@@ -41,7 +42,7 @@ public class HoarderHand : MonoBehaviour {
         gameTimer = GameObject.FindGameObjectWithTag("HoarderTime").GetComponent<GameTimer>();
         currItem = currItemObject.GetComponent<CurrentItem>();
         holdTimer = new Timer();
-        holdTimer.SetTimer(.5f);
+        holdTimer.SetTimer(1);
         holdTimer.OnTimeUp += HandleTimeUp;
         for (int i = 0; i < itemsToSteal; i++)
         {
@@ -116,6 +117,7 @@ public class HoarderHand : MonoBehaviour {
 
     void HandleTimeUp()
     {
+        Debug.Log("Hand holding now");
         handMovingBack = true;
         holdTimer.Reset();
     }
@@ -133,10 +135,6 @@ public class HoarderHand : MonoBehaviour {
             Debug.Log("Hand colliding with target");
             holdTimer.StartTimer();
             currItem.addItem();
-        }
-        if (collision.gameObject.name == "HandPlacehold1" || collision.gameObject.name == "HandPlacehold2")
-        {
-
         }
     }
 }

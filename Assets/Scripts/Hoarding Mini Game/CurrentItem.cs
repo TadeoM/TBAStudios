@@ -17,7 +17,17 @@ public class CurrentItem : MonoBehaviour {
     private Vector3 originalPosition;
     private bool inMotion;
     private GameTimer gameTimer;
+    private List<Sprite> recyclingSprites;
+    private List<Sprite> clothingSprites;
+    private List<Sprite> paperSprites;
+    private List<Sprite> trashSprites;
+    private List<Sprite> electronicsSprites;
+    private HashSet<Sprite> alreadyUsed;
+    private bool success;
+    private bool gameOver;
     [SerializeField] private int SPEED;
+    [SerializeField] private GameObject spriteTree;
+    [SerializeField] private GameObject boxOverlay;
 
     // Doing this because C# is dumb 
     int Mod(int x, int m)
@@ -30,6 +40,39 @@ public class CurrentItem : MonoBehaviour {
         itemsLeft = 20;
         size = new Vector2(3, 2);
         targets = new List<OrganizeBox>();
+        recyclingSprites = new List<Sprite>();
+        clothingSprites = new List<Sprite>();
+        paperSprites = new List<Sprite>();
+        trashSprites = new List<Sprite>();
+        electronicsSprites = new List<Sprite>();
+        alreadyUsed = new HashSet<Sprite>();
+        foreach(Transform child in spriteTree.transform)
+        {
+            string category = child.name;
+            foreach(Transform sprite in child)
+            {
+                if(category == "Recycling")
+                {
+                    recyclingSprites.Add(sprite.GetComponent<SpriteRenderer>().sprite);
+                }
+                else if(category == "Electronics")
+                {
+                    electronicsSprites.Add(sprite.GetComponent<SpriteRenderer>().sprite);
+                }
+                else if(category == "Trash")
+                {
+                    trashSprites.Add(sprite.GetComponent<SpriteRenderer>().sprite);
+                }
+                else if(category == "Clothing")
+                {
+                    trashSprites.Add(sprite.GetComponent<SpriteRenderer>().sprite);
+                }
+                else if(category == "Paper")
+                {
+                    paperSprites.Add(sprite.GetComponent<SpriteRenderer>().sprite);
+                }
+            }
+        }
         boxLocationMap = new Dictionary<Vector2, OrganizeBox>();
         GameObject[] targetsTest;
         targetsTest = GameObject.FindGameObjectsWithTag("Box");
@@ -91,7 +134,7 @@ public class CurrentItem : MonoBehaviour {
         {
             hoarder.Target = target;
         }
-        target.GetComponent<SpriteRenderer>().color = Color.blue;
+        boxOverlay.GetComponent<Transform>().position = target.GetComponent<Transform>().position;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if(target.Type == this.type)
@@ -116,6 +159,40 @@ public class CurrentItem : MonoBehaviour {
             Debug.Log("Colliding with correct object");
             GetComponent<Transform>().position = originalPosition;
             type = (OrganizeBox.ItemType)Random.Range(0, 5);
+            Sprite newSprite;
+            bool alreadyAdded = false;
+            switch (type)
+            {
+                case OrganizeBox.ItemType.CLOTHES:
+                    newSprite = clothingSprites[Random.Range(0, clothingSprites.Count)];
+                    GetComponent<SpriteRenderer>().sprite = newSprite;
+                    alreadyAdded = alreadyUsed.Add(newSprite);
+                    break;
+                case OrganizeBox.ItemType.ELECTRONICS:
+                    newSprite = electronicsSprites[Random.Range(0, electronicsSprites.Count)];
+                    GetComponent<SpriteRenderer>().sprite = newSprite;
+                    alreadyAdded = alreadyUsed.Add(newSprite);
+                    break;
+                case OrganizeBox.ItemType.RECYCLING:
+                    newSprite = recyclingSprites[Random.Range(0, recyclingSprites.Count)];
+                    GetComponent<SpriteRenderer>().sprite = newSprite;
+                    alreadyAdded = alreadyUsed.Add(newSprite);
+                    break;
+                case OrganizeBox.ItemType.PAPER:
+                    newSprite = paperSprites[Random.Range(0, paperSprites.Count)];
+                    GetComponent<SpriteRenderer>().sprite = newSprite;
+                    alreadyAdded = alreadyUsed.Add(newSprite);
+                    break;
+                case OrganizeBox.ItemType.TRASH:
+                    newSprite = trashSprites[Random.Range(0, trashSprites.Count)];
+                    GetComponent<SpriteRenderer>().sprite = newSprite;
+                    alreadyUsed.Add(newSprite);
+                    break;
+            }
+            if (alreadyAdded)
+            {
+                type = OrganizeBox.ItemType.SELL;
+            }
             inMotion = false;
         }
     }
