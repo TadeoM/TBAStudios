@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour {
         // Dev Controls
         if (Input.GetKeyDown(KeyCode.X))
         {
-            BackToMainMenu();
+            ZoomOutPlayer();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -42,11 +42,11 @@ public class MenuController : MonoBehaviour {
             .Join(currentCamera.transform.DOMoveY(-2f, 5))
 
             ;
-        
-        
-        
 
-        mainMenuSequence.Play();
+
+
+
+        mainMenuSequence.Play().OnComplete(() => ZoomToPlayer());
 
     }
 
@@ -57,8 +57,18 @@ public class MenuController : MonoBehaviour {
         //transform.DOMove(GameObject.FindGameObjectWithTag("player").transform.Find("Camera Target").transform.position, 2);
     }
 
+    public void ZoomOutPlayer()
+    {
+        currentCamera.GetComponent<Camera2DFollow>().enabled = false;
+
+        DOTween.To(orthoSize => currentCamera.orthographicSize = orthoSize, 1.3f, 5.82f, 2)
+            .OnComplete(() => BackToMainMenu());
+        //transform.DOMove(GameObject.FindGameObjectWithTag("player").transform.Find("Camera Target").transform.position, 2);
+    }
+
     public void BackToMainMenu()
     {
+        
         Debug.Log("Back to main menu pressed");
 
         Sequence backToMainMenuSequence = DOTween.Sequence();
