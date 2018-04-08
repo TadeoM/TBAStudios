@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CurrentItem : MonoBehaviour {
 
+    [SerializeField] private Text timerText;
+    [SerializeField] private Text itemText;
     [SerializeField] private OrganizeBox.ItemType type;
     private int itemsLeft;
     private HoarderHand hoarder;
@@ -13,6 +16,7 @@ public class CurrentItem : MonoBehaviour {
     private Vector2 size;
     private Vector3 originalPosition;
     private bool inMotion;
+    private GameTimer gameTimer;
     [SerializeField] private int SPEED;
 
     // Doing this because C# is dumb 
@@ -30,6 +34,7 @@ public class CurrentItem : MonoBehaviour {
         GameObject[] targetsTest;
         targetsTest = GameObject.FindGameObjectsWithTag("Box");
         hoarder = GameObject.FindGameObjectWithTag("Hand").GetComponent<HoarderHand>();
+        gameTimer = GameObject.FindGameObjectWithTag("HoarderTime").GetComponent<GameTimer>();
         foreach(GameObject gameObject in targetsTest){
             targets.Add(gameObject.GetComponent<OrganizeBox>());
         }
@@ -43,6 +48,17 @@ public class CurrentItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        timerText.text = "0:";
+        if(gameTimer.TimeLeft < 10)
+        {
+            timerText.text += "0";
+        }
+        timerText.text += gameTimer.TimeLeft.ToString();
+        itemText.text = itemsLeft.ToString();
+        if(itemsLeft == 0)
+        {
+            gameTimer.StopTimer();
+        }
         if (inMotion)
         {
             Vector3 movePos = Vector3.MoveTowards(GetComponent<Transform>().position, target.GetComponent<Transform>().position, SPEED * Time.deltaTime);
@@ -83,10 +99,6 @@ public class CurrentItem : MonoBehaviour {
                 itemsLeft--;
                 target.addItem();
             }
-            else
-            {
-                itemsLeft++;
-            }
             inMotion = true;
         }
 	}
@@ -106,5 +118,15 @@ public class CurrentItem : MonoBehaviour {
             type = (OrganizeBox.ItemType)Random.Range(0, 5);
             inMotion = false;
         }
+    }
+
+    public void removeItem()
+    {
+        itemsLeft--;
+    }
+
+    public void addItem()
+    {
+        itemsLeft++;
     }
 }
