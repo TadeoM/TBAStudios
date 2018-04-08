@@ -7,8 +7,7 @@ public class Cutting : MonoBehaviour {
     [SerializeField] private Transform cutLinePrefab;
     [SerializeField] private Transform cutItems;
     [SerializeField] private Transform cookPot;
-
-    private enum itemChildren {CUT_POINTS, CHOPPED};
+    
     private int currCutPoint;
     private int currCutItem;
     private bool end_minigame;
@@ -53,8 +52,8 @@ public class Cutting : MonoBehaviour {
     {
         //end game
         Debug.Log("Kinves Down!");
-        end_minigame = true;
-        GameManager.Instance.CookingScore += score;
+        //end_minigame = true;
+        //GameManager.Instance.CookingScore += score;
         //add transition to main game from minigame
     }
 
@@ -71,7 +70,7 @@ public class Cutting : MonoBehaviour {
         //Debug.Log(score);
 
         //Move knife across screen
-        if (this.transform.position.x < 1)
+        if (this.transform.position.x < 2)
         {
             this.transform.position += new Vector3(knifeSpeed, 0);
         }
@@ -114,6 +113,9 @@ public class Cutting : MonoBehaviour {
                 {
                     //Hide chopped up items
                     cutItems.GetChild(currCutItem).gameObject.SetActive(false);
+
+                    cutItems.GetChild(currCutItem).GetChild(2).parent = cookPot;
+                    cookPot.GetChild(currCutItem).localPosition = new Vector3(0,0,0);
                     //show diced items in pot
                     cookPot.GetChild(currCutItem).gameObject.SetActive(true);
 
@@ -125,7 +127,7 @@ public class Cutting : MonoBehaviour {
                     {
                         //end game
                         end_minigame = true;
-                        GameManager.Instance.CookingScore +=score;
+                        //GameManager.Instance.CookingScore +=score;
                         //add transition to main game from minigame
                     }
                     else

@@ -16,6 +16,8 @@ public class Recipe : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        score = 0;
+
         // Create the timer
         timer = new Timer();
         // Register for the events
@@ -55,7 +57,7 @@ public class Recipe : MonoBehaviour
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
             if(hitCollider.tag == "Item")
             {
-                if(hitCollider.name == "" || hitCollider.name == "" || hitCollider.name == "" || hitCollider.name == "")
+                if(hitCollider.name == "Broccoli" || hitCollider.name == "Garlic" || hitCollider.name == "Potato" || hitCollider.name == "Tomato")
                 {
                     score += 2;
                 }
@@ -68,7 +70,8 @@ public class Recipe : MonoBehaviour
                 if(numItems == 0)
                 {
                     this.gameObject.SetActive(false);
-                    GameManager.Instance.CookingScore += score;
+                    Debug.Log(score);
+                    //GameManager.Instance.CookingScore += score;
                     //If we want to have a Transition screen, set active transition screen instead of knife
                     knife.SetActive(true);
                 }
