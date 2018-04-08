@@ -74,10 +74,10 @@ public class DialogueTyping : MonoBehaviour {
     // Use this for initialization
     void Start() {
         
-        linesSun = System.IO.File.ReadAllLines(@"C:\Users\Jeb\Desktop\School\Jams\IThrive Kindness Text\Sun.txt");
-        linesStar = System.IO.File.ReadAllLines(@"C:\Users\Jeb\Desktop\School\Jams\IThrive Kindness Text\Star.txt");
-        linesBonfire = System.IO.File.ReadAllLines(@"C:\Users\Jeb\Desktop\School\Jams\IThrive Kindness Text\Bonfire.txt");
-        linesCandle = System.IO.File.ReadAllLines(@"C:\Users\Jeb\Desktop\School\Jams\IThrive Kindness Text\Candle.txt");
+        linesSun = System.IO.File.ReadAllLines(@"Text\Sun.txt");
+        linesStar = System.IO.File.ReadAllLines(@"Text\Star.txt");
+        linesBonfire = System.IO.File.ReadAllLines(@"Text\Bonfire.txt");
+        linesCandle = System.IO.File.ReadAllLines(@"Text\Candle.txt");
 
         spacing = 25;
 
