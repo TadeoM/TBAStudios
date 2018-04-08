@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets._2D;
 
 public class MainController : MonoBehaviour
@@ -79,7 +80,7 @@ public class MainController : MonoBehaviour
 
         if (true)
         {
-            player.GetComponent<Platformer2DUserControl>().acceptInputs = true;
+            //player.GetComponent<Platformer2DUserControl>().acceptInputs = true;
             player.GetComponent<Rigidbody2D>().drag = 0f;
             player.GetComponent<Animator>().speed = 1f;
         }
@@ -138,7 +139,7 @@ public class MainController : MonoBehaviour
         if (CheckInputs() == 0 && callOnce == 0)
         {
             Debug.Log(player.GetComponent<Animator>().speed);
-            player.GetComponent<Platformer2DUserControl>().acceptInputs = false;
+            //player.GetComponent<Platformer2DUserControl>().acceptInputs = false;
             player.GetComponent<Rigidbody2D>().drag = 1000f;
             player.GetComponent<Animator>().speed = 0;
             Fade(0.05f);
