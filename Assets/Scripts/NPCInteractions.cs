@@ -55,12 +55,6 @@ public class NPCInteractions : MonoBehaviour
         ChangeMentalState(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        ChangeMentalState(-1f);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isTriggered = true;
