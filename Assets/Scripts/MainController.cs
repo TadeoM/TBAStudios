@@ -142,8 +142,6 @@ public class MainController : MonoBehaviour
                     //textBox.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0);
                 }
 
-
-
                 nonPlayerScripts[currentNPC].convoIndex++;
                 if (nonPlayerScripts[currentNPC].convoIndex > nonPlayerScripts[currentNPC].CurrentConversation.Length - 1)
                 {
@@ -205,17 +203,17 @@ public class MainController : MonoBehaviour
             {
                 player.transform.position = new Vector2(-7.5f, -5.20f);
             }
-            else if (player.transform.position.x >= -2.384f && player.transform.position.y < -2.971f)
-            {
-                // -2.49  -0.9655123
-                player.transform.position = new Vector2(-2.49f, -0.96f);
-            }
+            //else if (player.transform.position.x >= -2.384f && player.transform.position.y < -2.971f)
+            //{
+            //    // -2.49  -0.9655123
+            //    player.transform.position = new Vector2(-2.49f, -0.96f);
+            //}
             // this elseif is broken
-            else if (player.transform.position.x <= -1.7f && player.transform.position.y > -1f)
-            {
-                // -2.49  -0.9655123
-                player.transform.position = new Vector2(-2.384f, -2.971f);
-            }
+            //else if (player.transform.position.x <= -1.7f && player.transform.position.y > -1f)
+            //{
+            //    // -2.49  -0.9655123
+            //    player.transform.position = new Vector2(-2.384f, -2.971f);
+            //}
             else
             {
                 player.transform.position = new Vector2(1f, -6.547f);
