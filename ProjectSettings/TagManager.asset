@@ -9,6 +9,8 @@ TagManager:
   - Placeholder1
   - Placeholder2
   - HoarderTime
+  - TimerDisplay
+  - ItemDisplay
   layers:
   - Default
   - TransparentFX

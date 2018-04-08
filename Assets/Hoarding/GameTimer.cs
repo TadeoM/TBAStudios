@@ -18,20 +18,23 @@ public class GameTimer : MonoBehaviour {
         get { return GAME_TIME; }
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         timeLeft = GAME_TIME;
         timer = new Timer();
         timer.OnSecondsChanged += HandleSecondsChanged;
         timer.SetTimer(GAME_TIME);
         timer.StartTimer();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        timer.Update();
-	}
+    }
 
+    // Update is called once per frame
+    void FixedUpdate() {
+        timer.Update();
+    }
+    public void StopTimer()
+    {
+        timer.StopTimer();
+    }
 
     void HandleSecondsChanged(int secondsRemaining)
     {
