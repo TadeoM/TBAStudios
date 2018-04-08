@@ -23,7 +23,6 @@ public class CurrentItem : MonoBehaviour {
     private List<Sprite> trashSprites;
     private List<Sprite> electronicsSprites;
     private HashSet<Sprite> alreadyUsed;
-    private bool success;
     private bool gameOver;
     [SerializeField] private int SPEED;
     [SerializeField] private GameObject spriteTree;
