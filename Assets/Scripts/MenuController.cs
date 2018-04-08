@@ -40,11 +40,7 @@ public class MenuController : MonoBehaviour {
             .Append(playTextButton.DOFade(0, 1f))
             .Join(title.DOFade(0, 3))
             .Join(currentCamera.transform.DOMoveY(-2f, 5))
-
             ;
-
-
-
 
         mainMenuSequence.Play().OnComplete(() => ZoomToPlayer());
 
@@ -52,8 +48,9 @@ public class MenuController : MonoBehaviour {
 
     public void ZoomToPlayer()
     {
-        DOTween.To(orthoSize => currentCamera.orthographicSize = orthoSize, 5.82f, 1.3f, 2);
+        DOTween.To(orthoSize => currentCamera.orthographicSize = orthoSize, 5.82f, 1.3f, 2).OnComplete(() => DOTween.CompleteAll());
         currentCamera.GetComponent<Camera2DFollow>().enabled=true;
+        playTextButton.GetComponent<Button>().interactable = false;
         //transform.DOMove(GameObject.FindGameObjectWithTag("player").transform.Find("Camera Target").transform.position, 2);
     }
 
@@ -80,7 +77,7 @@ public class MenuController : MonoBehaviour {
             .Append(playTextButton.DOFade(1, 1f))
             ;
 
-        backToMainMenuSequence.Play();
+        backToMainMenuSequence.Play().OnComplete(()=> playTextButton.GetComponent<Button>().interactable = false );
 
 
     }
