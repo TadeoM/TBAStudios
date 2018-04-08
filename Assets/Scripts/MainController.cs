@@ -8,7 +8,7 @@ using UnityStandardAssets._2D;
 
 public class MainController : MonoBehaviour
 {
-
+    public GameObject textBox;
     public GameObject player;
     public GameObject[] nonPlayers;
     public Dialogues dialogue;
@@ -50,12 +50,17 @@ public class MainController : MonoBehaviour
         SetNonPlayers();
         dialogue.SetupEverything();
         cameraChild = camera.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        textBox.SetActive(false);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         timer.Update();
+        if(timer.seconds <= 0)
+        {
+            timer.running = false;
+        }
         NPCInteraction();
         if (callOnce > 0)
             callOnce--;
@@ -65,22 +70,7 @@ public class MainController : MonoBehaviour
             setupOnce = true;
         }
 
-        if(inConversation)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log(nonPlayerScripts[currentNPC].CurrentConversation[nonPlayerScripts[currentNPC].convoIndex]);
-                nonPlayerScripts[currentNPC].convoIndex++;
-                if (nonPlayerScripts[currentNPC].convoIndex > nonPlayerScripts[currentNPC].CurrentConversation.Length - 1)
-                {
-                    nonPlayerScripts[currentNPC].convoIndex = 0;
-                    inConversation = false;
-                    player.GetComponent<Platformer2DUserControl>().acceptInput = true;
-                    player.GetComponent<Animator>().speed = 1;
-                }
-                    
-            }
-        }
+        ConversationMethod();
         
 
         if (!timer.running)
@@ -130,6 +120,42 @@ public class MainController : MonoBehaviour
         }
         Debug.Log("New day");
         daysLeft--;
+    }
+
+    void ConversationMethod()
+    {
+        if (inConversation)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log(nonPlayerScripts[currentNPC].convoIndex % 2);
+                // textCanvas.get
+                textBox.SetActive(true);
+                textBox.GetComponentInChildren<TextMeshProUGUI>().text = nonPlayerScripts[currentNPC].CurrentConversation[nonPlayerScripts[currentNPC].convoIndex];
+                if (nonPlayerScripts[currentNPC].convoIndex % 2 == 0)
+                {
+                    textBox.GetComponentInChildren<TextMeshProUGUI>().color = new Color(255, 255, 255);
+                }
+                else
+                {
+                    textBox.GetComponentInChildren<TextMeshProUGUI>().color = new Color(53 / 255, 53 / 255, 255 / 255);
+                    //textBox.GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0);
+                }
+
+
+
+                nonPlayerScripts[currentNPC].convoIndex++;
+                if (nonPlayerScripts[currentNPC].convoIndex > nonPlayerScripts[currentNPC].CurrentConversation.Length - 1)
+                {
+                    nonPlayerScripts[currentNPC].convoIndex = 0;
+                    inConversation = false;
+                    player.GetComponent<Platformer2DUserControl>().acceptInput = true;
+                    player.GetComponent<Animator>().speed = 1;
+                    textBox.SetActive(false);
+                }
+
+            }
+        }
     }
 
     /// <summary>
