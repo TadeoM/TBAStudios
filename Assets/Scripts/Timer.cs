@@ -5,7 +5,6 @@ using UnityEngine;
 public class Timer : MonoBehaviour {
 
     public float seconds;
-    float seconds;
     float startTime;
 
     public bool running;
