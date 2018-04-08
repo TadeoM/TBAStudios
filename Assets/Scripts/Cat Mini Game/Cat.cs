@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cat : MonoBehaviour {
 
     public CatColor catColor;
-    public float speed = 5f;
+    public float speed = 2f;
 
     public bool running;
 
@@ -15,15 +15,17 @@ public class Cat : MonoBehaviour {
     public AudioClip[] dissatisfiedSounds;
     public AudioClip[] satisfiedSounds;
 
-    enum CatSpeed { Slow = 1, Normal = 2, Fast = 3, Max}
+    enum CatSpeed { Slow = 1, Normal = 2, Fast = 3, Max = 5}
     CatSpeed speedMod = CatSpeed.Normal;
     Vector3 targetPosition;
     AudioSource audioSource;
     bool facingRight;
+    Animator anim;
 
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -42,10 +44,11 @@ public class Cat : MonoBehaviour {
 
     public void StartRunning()
     {
-        targetPosition = new Vector3(-transform.position.x, -transform.position.y, transform.position.z);
-        speedMod = (CatSpeed)Mathf.FloorToInt(Random.Range(1, 3));
+        targetPosition = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
+        speedMod = (CatSpeed)Mathf.FloorToInt(Random.Range(1, (int)CatSpeed.Max));
         facingRight = transform.position.x < 0;
-        transform.localScale = new Vector3(facingRight ? -1 : 1, transform.localScale.y, transform.localScale.z); 
+        transform.localScale = new Vector3(facingRight ? -1 : 1, transform.localScale.y, transform.localScale.z);
+        anim.Play("Running");
         running = true;
     }
 
@@ -69,6 +72,8 @@ public class Cat : MonoBehaviour {
     public void PlaySatisfied()
     {
         audioSource.PlayOneShot(satisfiedSounds[Random.Range(0,satisfiedSounds.Length-1)]);
+        anim.Play("Sitting");
+
     }
 
     public void PlayDissatisfied()

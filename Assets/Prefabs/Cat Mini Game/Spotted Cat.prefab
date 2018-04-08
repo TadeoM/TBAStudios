@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61051001863600420}
   - component: {fileID: 82602297057386664}
   - component: {fileID: 212014021374833146}
+  - component: {fileID: 95683119152961340}
   m_Layer: 0
   m_Name: Spotted Cat
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1493768516023434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.34, y: -1.94, z: 0}
+  m_LocalPosition: {x: -0.46, y: -1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,7 +60,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0434783, y: 0.7826087}
+    oldSize: {x: 0.6666667, y: 0.53333336}
     newSize: {x: 0.8695652, y: 0.6956522}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,6 +149,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95683119152961340
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1493768516023434}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1af5a2af7ed489948abe458dff2bdc34, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114833711554793442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catColor: 3
-  speed: 4
+  speed: 1
   running: 0
   dissatisfiedSounds:
   - {fileID: 8300000, guid: 3c4a53e7d2f50004989a901f1d350f04, type: 3}
@@ -202,7 +220,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 8b7c0d8232a85b24880a122f051af148, type: 3}
+  m_Sprite: {fileID: 21300014, guid: 8b7c0d8232a85b24880a122f051af148, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
