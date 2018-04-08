@@ -8,7 +8,6 @@ public enum Level { MainGame, CatMiniGame, CuttingMiniGame, DialogMiniGame, Hoar
 public class LevelManager : MonoBehaviour {
     public static LevelManager Instance;
 
-    public enum Level { Game, CatMiniGame, CuttingMiniGame, DialogMiniGame, HoardingMiniGame, Credits }
 
     private void Awake()
     {
@@ -31,11 +30,6 @@ public class LevelManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             LoadScene((int)Level.MainGame);
-            LoadScene((int)Level.Game);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            LoadScene((int)Level.CatMiniGame);
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))

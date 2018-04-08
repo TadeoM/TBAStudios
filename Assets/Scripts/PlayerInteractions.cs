@@ -63,6 +63,6 @@ public class PlayerInteractions : MonoBehaviour
         {
             energy = 0;
         }
-        //silhouette.color = new Color(silhouette.color.r, silhouette.color.g, silhouette.color.b, happiness / 100);
+        silhouette.color = new Color(silhouette.color.r, silhouette.color.g, silhouette.color.b, happiness / 100);
     }
 }
