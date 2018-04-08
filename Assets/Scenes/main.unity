@@ -401,8 +401,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 290147989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62, y: 4.85, z: 90}
-  m_LocalScale: {x: 0.0258772, y: 0.0258772, z: 0.0258772}
+  m_LocalPosition: {x: 0.62, y: 4.87, z: 90}
+  m_LocalScale: {x: 0.022352174, y: 0.022352174, z: 0.022352174}
   m_Children:
   - {fileID: 685363464}
   - {fileID: 228743535}
@@ -968,6 +968,21 @@ Prefab:
       propertyPath: m_Size.x
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 114895352965700836, guid: 86bdbb2619f551b408a4492d67b6104f,
+        type: 2}
+      propertyPath: m_JumpForce
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 50248265195253558, guid: 86bdbb2619f551b408a4492d67b6104f,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895352965700836, guid: 86bdbb2619f551b408a4492d67b6104f,
+        type: 2}
+      propertyPath: m_MaxSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86bdbb2619f551b408a4492d67b6104f, type: 2}
   m_IsPrefabParent: 0
@@ -1047,10 +1062,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dfa0307aa4df6e4c9d43d7af08db2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joeJones: {fileID: 0}
-  sarah: {fileID: 0}
-  william: {fileID: 0}
-  spongegar: {fileID: 0}
+  joeJones: {fileID: 409375596}
+  elizabeth: {fileID: 0}
+  jonDoe: {fileID: 0}
+  fuyumi: {fileID: 0}
   isSetup: 0
 --- !u!1001 &1310521095
 Prefab:
