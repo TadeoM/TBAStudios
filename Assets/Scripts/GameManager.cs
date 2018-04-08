@@ -6,7 +6,25 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private Vector2 playerPos;
-    public int cookingScore;
+    private int cookingScore;
+
+    public enum Kindness { Neutral, Ok, Good, Best };
+
+    public Vector2 PlayerPos { get; set; }
+
+    public int CookingScore { get; set; }
+
+    //Custom get set
+    public Vector2 PlayerPos2 {
+        get
+        {
+            return playerPos;
+        }
+        set
+        {
+            playerPos = value;
+        }
+    }   
 
     private void Awake()
     {
@@ -22,28 +40,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        cookingScore = 0;
     }
-
-    public void SetPlayerPos(Vector2 newPos)
-    {
-        playerPos = newPos;
-    }
-
-    public Vector2 GetPlayerPos()
-    {
-        return playerPos;
-    }
-
-    public void AddCookingScore(int score)
-    {
-        cookingScore += score;
-    }
-
-    public int GetCookingScore()
-    {
-        return cookingScore;
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
