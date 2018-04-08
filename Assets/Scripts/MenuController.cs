@@ -10,11 +10,16 @@ public class MenuController : MonoBehaviour {
 
     public TextMeshProUGUI title;
     public TextMeshProUGUI playTextButton;
+
+    public Color nightTime;
+    public Color dayTime;
+
     Camera currentCamera;
 
     // Use this for initialization
     void Start () {
         currentCamera = Camera.main;
+        currentCamera.backgroundColor = dayTime;
     }
 	
 	// Update is called once per frame
@@ -40,10 +45,10 @@ public class MenuController : MonoBehaviour {
             .Append(playTextButton.DOFade(0, 1f))
             .Join(title.DOFade(0, 3))
             .Join(currentCamera.transform.DOMoveY(-2f, 5))
+            .Join(currentCamera.DOColor(nightTime, 5))
             ;
 
         mainMenuSequence.Play().OnComplete(() => ZoomToPlayer());
-
     }
 
     public void ZoomToPlayer()

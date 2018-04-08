@@ -456,7 +456,7 @@ RectTransform:
   m_GameObject: {fileID: 290147989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.62, y: 10, z: 90}
-  m_LocalScale: {x: 0.022352174, y: 0.022352174, z: 0.022352174}
+  m_LocalScale: {x: 0.0258772, y: 0.0258772, z: 0.0258772}
   m_Children:
   - {fileID: 685363464}
   - {fileID: 228743535}
@@ -1756,6 +1756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 685363465}
   playTextButton: {fileID: 228743537}
+  nightTime: {r: 0.23921569, g: 0.20784314, b: 0.65882355, a: 0}
+  dayTime: {r: 0.23015787, g: 0.799901, b: 0.9485294, a: 0}
 --- !u!4 &1470511517
 Transform:
   m_ObjectHideFlags: 0
