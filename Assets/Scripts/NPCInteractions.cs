@@ -5,11 +5,13 @@ using UnityEngine;
 public class NPCInteractions : MonoBehaviour
 {
     int value;
+    public int convoIndex = 0;
     private bool isTriggered = false;
     private string currentMinigame;
     public string[] possibleMinigames;
     [SerializeField] private float happiness;
     private float maxHappiness = 100;
+    
     private SpriteRenderer silhouette;
     private Transform child;
     private string[,] conversations;

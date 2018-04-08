@@ -13,8 +13,11 @@ public class MainController : MonoBehaviour
     public GameObject[] nonPlayers;
     public Dialogues dialogue;
     public GameObject camera;
+    private bool displayText;
+    private bool inConversation;
     private int daysLeft = 7;
     private int fadeTimer;
+    private int currentNPC;
     private bool fadeOut;
     private int callOnce;
     private bool setupOnce = false;
@@ -36,6 +39,8 @@ public class MainController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        displayText = false;
+        inConversation = false;
         callOnce = 5;
         fadeTimer = 60;
         fadeOut = false;
@@ -59,6 +64,24 @@ public class MainController : MonoBehaviour
             NewDay();
             setupOnce = true;
         }
+
+        if(inConversation)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log(nonPlayerScripts[currentNPC].CurrentConversation[nonPlayerScripts[currentNPC].convoIndex]);
+                nonPlayerScripts[currentNPC].convoIndex++;
+                if (nonPlayerScripts[currentNPC].convoIndex > nonPlayerScripts[currentNPC].CurrentConversation.Length - 1)
+                {
+                    nonPlayerScripts[currentNPC].convoIndex = 0;
+                    inConversation = false;
+                    player.GetComponent<Platformer2DUserControl>().acceptInput = true;
+                    player.GetComponent<Animator>().speed = 1;
+                }
+                    
+            }
+        }
+        
 
         if (!timer.running)
         {
@@ -118,11 +141,22 @@ public class MainController : MonoBehaviour
         {
             if (nonPlayerScripts[i].IsTriggered && CheckInputs() == 0)
             {
-                Debug.Log(nonPlayers[i].gameObject.name + " We want to play " + nonPlayerScripts[i].CurrentMinigame + " minigame");
+                currentNPC = i;
+                inConversation = true;
+                player.GetComponent<Platformer2DUserControl>().acceptInput = false;
+                player.GetComponent<Animator>().speed = 0;
+                //for (int word = 0; word < nonPlayerScripts[i].Conversations.Length; word++)
+                //{
+                //    nonPlayerScripts[i].CurrentConversation[word] = nonPlayerScripts[i].Conversations[0, word];
+                //}
+
+                
+                //Debug.Log(nonPlayers[i].gameObject.name + " We want to play " + nonPlayerScripts[i].CurrentMinigame + " minigame");
                 GameManager.Instance.CurrentNPCScript = nonPlayerScripts[i];
             }
         }
     }
+    
 
     public void UseElevator()
     {
@@ -131,10 +165,7 @@ public class MainController : MonoBehaviour
             Debug.Log(player.GetComponent<Animator>().speed);
             Fade(0.05f);
             int fadeTimer = 3000;
-            while (fadeTimer > 0)
-            {
-                fadeTimer--;
-            }
+
             if (player.transform.position.y < -6.57f)
             {
                 player.transform.position = new Vector2(1f, -5.20f);
@@ -185,7 +216,7 @@ public class MainController : MonoBehaviour
         Sequence fadeSequence = DOTween.Sequence();
 
         fadeSequence
-            .Append(cameraChild.DOFade(1, 0.5f))
+            .Append(cameraChild.DOFade(1, 0.25f))
             .Append(cameraChild.DOFade(0, 0.5f))
         ;
         fadeSequence.Play();
@@ -208,8 +239,12 @@ public class MainController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Returning 0");
+            //Debug.Log("Returning 0");
             return 0;
+        }
+        else if(Input.GetKey(KeyCode.F))
+        {
+            return 1;
         }
 
         //Debug.Log("Not returning 0");

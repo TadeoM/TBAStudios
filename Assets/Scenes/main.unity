@@ -791,13 +791,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114886390275360462, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: possibleMinigames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4948245362195538, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 4948245362195538, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.119
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 4948245362195538, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -849,7 +854,7 @@ Prefab:
     - target: {fileID: 212634458548596846, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
         type: 2}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 61696932899552726, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
         type: 2}
@@ -860,6 +865,45 @@ Prefab:
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 212634458548596846, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300040, guid: 66b53148a7795c74c8f40fa4256469c7,
+        type: 3}
+    - target: {fileID: 212634458548596846, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123040932165208, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123040932165208, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886390275360462, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[1]
+      value: Typing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886390275360462, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[2]
+      value: Sorting
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886390275360462, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[3]
+      value: Cooking
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886390275360462, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[0]
+      value: Cooking
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
@@ -918,13 +962,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114144891330515736, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: possibleMinigames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4552741046965158, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 4552741046965158, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.064
+      value: -2.974
       objectReference: {fileID: 0}
     - target: {fileID: 4552741046965158, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -971,17 +1020,52 @@ Prefab:
     - target: {fileID: 212496553995764234, guid: 883e2ab6598beef4292dffeb71a7c77c,
         type: 2}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212496553995764234, guid: 883e2ab6598beef4292dffeb71a7c77c,
         type: 2}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212658472094531550, guid: 883e2ab6598beef4292dffeb71a7c77c,
         type: 2}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212496553995764234, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300020, guid: 66b53148a7795c74c8f40fa4256469c7,
+        type: 3}
+    - target: {fileID: 4391726476233830, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 61166248179137976, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144891330515736, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[0]
+      value: Typing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144891330515736, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[1]
+      value: Typing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144891330515736, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[2]
+      value: Sorting
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144891330515736, guid: 883e2ab6598beef4292dffeb71a7c77c,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[3]
+      value: Cooking
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
@@ -1052,13 +1136,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114327772755824706, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: possibleMinigames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4492994222428860, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.669
       objectReference: {fileID: 0}
     - target: {fileID: 4492994222428860, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.922
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 4492994222428860, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1138,7 +1227,7 @@ Prefab:
     - target: {fileID: 212975963874656486, guid: 80d7191b8e930374e8204c788417a889,
         type: 2}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212501336610567172, guid: 80d7191b8e930374e8204c788417a889,
         type: 2}
@@ -1149,6 +1238,45 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212975963874656486, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 66b53148a7795c74c8f40fa4256469c7,
+        type: 3}
+    - target: {fileID: 212975963874656486, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707101399550692, guid: 80d7191b8e930374e8204c788417a889, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.0006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707101399550692, guid: 80d7191b8e930374e8204c788417a889, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.0013
+      objectReference: {fileID: 0}
+    - target: {fileID: 114327772755824706, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[1]
+      value: Typing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114327772755824706, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[2]
+      value: Sorting
+      objectReference: {fileID: 0}
+    - target: {fileID: 114327772755824706, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[3]
+      value: Cooking
+      objectReference: {fileID: 0}
+    - target: {fileID: 114327772755824706, guid: 80d7191b8e930374e8204c788417a889,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[0]
+      value: CatFinding
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d7191b8e930374e8204c788417a889, type: 2}
@@ -1583,6 +1711,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31df00e71ab50e7449998a7d9b71b13e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1395889797 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1355835682915422, guid: ae80314f6f57e774397b799ff8111e89,
+    type: 2}
+  m_PrefabInternal: {fileID: 762882703}
+--- !u!114 &1395889800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395889797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144e9edef4bf8834eb750ab5824997f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1470511515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,7 +1919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1583676272}
   damping: 0.1
-  lookAheadFactor: 3
+  lookAheadFactor: 0
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
 --- !u!114 &1540748433
@@ -2071,13 +2215,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114062830001142476, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: possibleMinigames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4913493359585766, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.07
       objectReference: {fileID: 0}
     - target: {fileID: 4913493359585766, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.044
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 4913493359585766, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2137,7 +2286,47 @@ Prefab:
     - target: {fileID: 212184292476686994, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
         type: 2}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212184292476686994, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 66b53148a7795c74c8f40fa4256469c7,
+        type: 3}
+    - target: {fileID: 212184292476686994, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 61313602172068418, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 61313602172068418, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4299612397558880, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114062830001142476, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[1]
+      value: Typing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114062830001142476, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[2]
+      value: Sorting
+      objectReference: {fileID: 0}
+    - target: {fileID: 114062830001142476, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+        type: 2}
+      propertyPath: possibleMinigames.Array.data[3]
+      value: Cooking
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
