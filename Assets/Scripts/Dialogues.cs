@@ -6,8 +6,8 @@ public class Dialogues : MonoBehaviour {
 
     public GameObject joeJones;
     public GameObject elizabeth;
-    public GameObject william;
-    public GameObject spongegar;
+    public GameObject jonDoe;
+    public GameObject fuyumi;
     public bool isSetup;
 
 	// Use this for initialization
@@ -25,8 +25,9 @@ public class Dialogues : MonoBehaviour {
     {
         SetupJoeJones();
         SetupElizabeth();
-        SetupWilliam();
-        SetupSpongegar();
+        SetupJonDoe();
+        SetupFuyumi();
+
         isSetup = true;
     }
 
@@ -43,7 +44,7 @@ public class Dialogues : MonoBehaviour {
                 "Okay that makes sense, let's do this/Thanks, I appreciate it!" /*okay, let's do this ends dialogue and starts minigame */}
         };
         joeJones.GetComponent<NPCInteractions>().Conversations = conversation;
-        Debug.Log(joeJones.GetComponent<NPCInteractions>().Conversations.Length);
+        //Debug.Log(joeJones.GetComponent<NPCInteractions>().Conversations.Length);
         joeJones.GetComponent<NPCInteractions>().NewDaySetup();
     }
 
@@ -65,9 +66,9 @@ public class Dialogues : MonoBehaviour {
         elizabeth.GetComponent<NPCInteractions>().NewDaySetup();
     }
 
-    public void SetupWilliam()
+    public void SetupJonDoe()
     {
-        string[,] conversation = william.GetComponent<NPCInteractions>().Conversations;
+        string[,] conversation = jonDoe.GetComponent<NPCInteractions>().Conversations;
         conversation = new string[1, 7]{
             { "*munch munch*", "Wow./You should probably cook that before you eat it.",
                 ".../I don't know how to cook.",
@@ -76,12 +77,12 @@ public class Dialogues : MonoBehaviour {
                 "Me too bud, but cooking your own food will give you energy/Let's cook some food together and you'll learn the recipe",
                 "I guess you're right, I'll try to learn some recipes/That sounds awesome! Let's do it." }
         };
-        william.GetComponent<NPCInteractions>().Conversations = conversation;
-        william.GetComponent<NPCInteractions>().NewDaySetup();
+        jonDoe.GetComponent<NPCInteractions>().Conversations = conversation;
+        jonDoe.GetComponent<NPCInteractions>().NewDaySetup();
     }
-    public void SetupSpongegar()
+    public void SetupFuyumi()
     {
-        string[,] conversation = spongegar.GetComponent<NPCInteractions>().Conversations;
+        string[,] conversation = fuyumi.GetComponent<NPCInteractions>().Conversations;
         conversation = new string[1, 7]{
             { "...", ".../So..what are you doing?",
                 ".../I'm trying to think of what my next art piece should be.",
@@ -90,7 +91,7 @@ public class Dialogues : MonoBehaviour {
                 "I'm confident we can get some ideas/I've been told my poetry is really good",
                 "I'll put my faith in you/I hope you're right" },
         };
-        spongegar.GetComponent<NPCInteractions>().Conversations = conversation;
-        spongegar.GetComponent<NPCInteractions>().NewDaySetup();
+        fuyumi.GetComponent<NPCInteractions>().Conversations = conversation;
+        fuyumi.GetComponent<NPCInteractions>().NewDaySetup();
     }
 }

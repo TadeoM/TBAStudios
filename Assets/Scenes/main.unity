@@ -244,6 +244,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1695424479256254, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
+      propertyPath: m_Name
+      value: JonNPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0448f2cbb99cb8f4d90d8a7c1a0fe7bc, type: 2}
   m_IsPrefabParent: 0
@@ -285,6 +289,10 @@ Prefab:
     - target: {fileID: 4552741046965158, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383750322878112, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
+      propertyPath: m_Name
+      value: FuyumiNPC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 883e2ab6598beef4292dffeb71a7c77c, type: 2}
@@ -335,6 +343,10 @@ Prefab:
     - target: {fileID: 1458361920213090, guid: 80d7191b8e930374e8204c788417a889, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388541790178892, guid: 80d7191b8e930374e8204c788417a889, type: 2}
+      propertyPath: m_Name
+      value: ElizabethNPC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80d7191b8e930374e8204c788417a889, type: 2}
@@ -492,10 +504,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dfa0307aa4df6e4c9d43d7af08db2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joeJones: {fileID: 0}
-  sarah: {fileID: 863217938}
-  william: {fileID: 1689440572}
-  spongegar: {fileID: 1841587014}
+  joeJones: {fileID: 2094853211}
+  elizabeth: {fileID: 863217938}
+  jonDoe: {fileID: 1689440572}
+  fuyumi: {fileID: 1841587014}
   isSetup: 0
 --- !u!1 &1327419547
 GameObject:
@@ -871,3 +883,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2094853211 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1183850419304700, guid: 3d1f1cd1f1ba4f04ea06f978d8c5a5a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094853210}

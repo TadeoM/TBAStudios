@@ -99,7 +99,7 @@ public class MainController : MonoBehaviour
         {
             if (nonPlayerScripts[i].IsTriggered && CheckInputs() == 0)
             {
-                Debug.Log("We want to play " + nonPlayerScripts[i].CurrentMinigame + " minigame");
+                Debug.Log(nonPlayers[i].gameObject.name + " We want to play " + nonPlayerScripts[i].CurrentMinigame + " minigame");
             }
         }
     }
