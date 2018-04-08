@@ -9,6 +9,8 @@ TagManager:
   - Placeholder2
   - HoarderTime
   - Item
+  - floor
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -18,8 +20,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - NPC
+  - Floor
   - 
   - 
   - 

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Timer {
+public class Timer : MonoBehaviour {
 
+    public float seconds;
     float seconds;
     float startTime;
 
