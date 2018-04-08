@@ -39,15 +39,7 @@ public class PlayerInteractions : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "interactable":
-
-                if (collision.gameObject.name.Contains("elevator"))
-                {
-                    GameObject.FindGameObjectWithTag("controller").GetComponent<MainController>().UseElevator();
-                }
-                else if (collision.gameObject.name.Contains("ladder"))
-                {
-                    
-                }
+                GameObject.FindGameObjectWithTag("controller").GetComponent<MainController>().UseElevator();
                 break;
             default:
                 Debug.Log("GOT HJERE");
