@@ -54,7 +54,7 @@ public class Cutting : MonoBehaviour {
         //end game
         Debug.Log("Kinves Down!");
         end_minigame = true;
-        GameManager.Instance.SetCookingScore(score);
+        GameManager.Instance.CookingScore += score;
         //add transition to main game from minigame
     }
 
@@ -125,7 +125,7 @@ public class Cutting : MonoBehaviour {
                     {
                         //end game
                         end_minigame = true;
-                        GameManager.Instance.AddCookingScore(score);
+                        GameManager.Instance.CookingScore +=score;
                         //add transition to main game from minigame
                     }
                     else
