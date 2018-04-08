@@ -27,9 +27,13 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Dev controls
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             LoadScene((int)Level.MainGame);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            LoadScene((int)Level.CatMiniGame);
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
