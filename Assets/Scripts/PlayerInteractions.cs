@@ -41,6 +41,9 @@ public class PlayerInteractions : MonoBehaviour
             case "interactable":
                 GameObject.FindGameObjectWithTag("controller").GetComponent<MainController>().UseElevator();
                 break;
+            case "NPC":
+                Debug.Log("This is an NPC");
+                break;
             default:
                 Debug.Log("GOT HJERE");
                 break;
