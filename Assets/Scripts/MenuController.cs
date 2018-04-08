@@ -10,13 +10,10 @@ public class MenuController : MonoBehaviour {
     public TextMeshProUGUI title;
     public TextMeshProUGUI playTextButton;
     Camera currentCamera;
-    Sequence mainMenuSequence;
 
     // Use this for initialization
     void Start () {
         currentCamera = Camera.main;
-        mainMenuSequence = DOTween.Sequence();
-        mainMenuSequence.SetAutoKill(false);
     }
 	
 	// Update is called once per frame
@@ -26,43 +23,54 @@ public class MenuController : MonoBehaviour {
         {
             BackToMainMenu();
         }
-	}
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ZoomToPlayer();
+        }
+    }
 
     public void PlayGame()
     {
         Debug.Log("Play game button pressed");
 
+        Sequence mainMenuSequence = DOTween.Sequence();
+
         mainMenuSequence
-            .Append(playTextButton.DOFade(0, .5f))
-            .Append(title.DOFade(0, 2))
-            .Append(currentCamera.transform.DOMoveY(-7.2f, 5))
+            .Append(playTextButton.DOFade(0, 1f))
+            .Join(title.DOFade(0, 3))
+            .Join(currentCamera.transform.DOMoveY(-7.2f, 5))
 
             ;
+        
+        
+        
 
         mainMenuSequence.Play();
-        // fade the button
-        // playTextButton.DOFade(0, 2);
 
-        // fade the title
-        // title.DOFade(0, 2);
+    }
 
-        // pan the building
-        // currentCamera.transform.DOMoveY(-7.2f, 5);
+    public void ZoomToPlayer()
+    {
+        DOTween.To(orthoSize => currentCamera.orthographicSize = orthoSize, 5.82f, 1.3f, 2);
+        GameObject.FindGameObjectWithTag("player");
+        //transform.DOMove(GameObject.FindGameObjectWithTag("player").transform.Find("Camera Target").transform.position, 2);
     }
 
     public void BackToMainMenu()
     {
-        // pan the building
-        //currentCamera.transform.DOMoveY(-7.2f, 3);
-
-        // fade the title
-        //title.DOFade(0, 2);
-
-        // fade the button
-        //playTextButton.DOFade(0, 2);
         Debug.Log("Back to main menu pressed");
-        mainMenuSequence.Goto(mainMenuSequence.Duration());
-        mainMenuSequence.PlayBackwards();
+
+        Sequence backToMainMenuSequence = DOTween.Sequence();
+
+        backToMainMenuSequence
+            .Append(currentCamera.transform.DOMoveY(4.87f, 5))
+            
+            .Join(title.DOFade(1, 3))
+            .Append(playTextButton.DOFade(1, 1f))
+            ;
+
+        backToMainMenuSequence.Play();
+
 
     }
 }
