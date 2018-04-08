@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using UnityStandardAssets._2D;
 
 public class MenuController : MonoBehaviour {
 
@@ -38,7 +39,7 @@ public class MenuController : MonoBehaviour {
         mainMenuSequence
             .Append(playTextButton.DOFade(0, 1f))
             .Join(title.DOFade(0, 3))
-            .Join(currentCamera.transform.DOMoveY(-7.2f, 5))
+            .Join(currentCamera.transform.DOMoveY(-2f, 5))
 
             ;
         
@@ -52,7 +53,7 @@ public class MenuController : MonoBehaviour {
     public void ZoomToPlayer()
     {
         DOTween.To(orthoSize => currentCamera.orthographicSize = orthoSize, 5.82f, 1.3f, 2);
-        GameObject.FindGameObjectWithTag("player");
+        currentCamera.GetComponent<Camera2DFollow>().enabled=true;
         //transform.DOMove(GameObject.FindGameObjectWithTag("player").transform.Find("Camera Target").transform.position, 2);
     }
 
@@ -63,7 +64,7 @@ public class MenuController : MonoBehaviour {
         Sequence backToMainMenuSequence = DOTween.Sequence();
 
         backToMainMenuSequence
-            .Append(currentCamera.transform.DOMoveY(4.87f, 5))
+            .Append(currentCamera.transform.DOMoveY(10, 5))
             
             .Join(title.DOFade(1, 3))
             .Append(playTextButton.DOFade(1, 1f))

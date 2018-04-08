@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCInteractions : MonoBehaviour {
+public class NPCInteractions : MonoBehaviour
+{
     int value;
     private bool isTriggered = false;
     private string currentMinigame;
     public string[] possibleMinigames;
-    private float happiness;
+    [SerializeField] private float happiness;
+    private float maxHappiness = 100;
     private SpriteRenderer silhouette;
     private Transform child;
     private string[,] conversations;
@@ -52,42 +54,44 @@ public class NPCInteractions : MonoBehaviour {
         silhouette = child.GetComponent<SpriteRenderer>();
         ChangeMentalState(0);
     }
-	
-	// Update is called once per frame
-	void Update() {
-        ChangeMentalState(-1f);
-	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isTriggered = true;
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isTriggered = false;
+    }
     public void NewDaySetup()
     {
-        value =  Random.Range(0, possibleMinigames.Length);
+        value = Random.Range(0, possibleMinigames.Length);
 
         currentMinigame = possibleMinigames[value];
-        
+
         currentConversation = new string[conversations.GetUpperBound(1)];
         //Debug.Log(conversations.Length);
         for (int i = 0; i < currentConversation.Length; i++)
         {
-            Debug.Log(value);
-            currentConversation[i] = conversations[value, i];
+            //Debug.Log(value);
+            currentConversation[i] = conversations[0, i];
         }
-        
-        
-        
+
+
+
     }
 
-    public void ChangeMentalState(float hapVal)
+    public void ChangeMentalState(int hapVal)
     {
-        happiness += hapVal;
-        if(happiness < 0)
+        happiness += hapVal * 10;
+        if (happiness < 0)
         {
             happiness = 0;
-            
         }
-        silhouette.color = new Color(silhouette.color.r, silhouette.color.g, silhouette.color.b, happiness / 100);
+        else if(happiness > 100)
+        {
+            happiness = 100;
+        }
+        silhouette.color = new Color(silhouette.color.r, silhouette.color.g, silhouette.color.b, happiness / maxHappiness);
     }
 }

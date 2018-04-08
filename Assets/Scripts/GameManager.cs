@@ -14,6 +14,20 @@ public class GameManager : MonoBehaviour
 
     public int CookingScore { get; set; }
 
+    private NPCInteractions currentNPCScript;
+
+    public NPCInteractions CurrentNPCScript
+    {
+        get
+        {
+            return currentNPCScript;
+        }
+        set
+        {
+            currentNPCScript = value;
+        }
+    }
+
     //Custom get set
     public Vector2 PlayerPos2 {
         get

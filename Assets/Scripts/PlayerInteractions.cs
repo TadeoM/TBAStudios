@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteractions : MonoBehaviour {
+public class PlayerInteractions : MonoBehaviour
+{
     private float happiness;
     private float energy;
     private SpriteRenderer silhouette;
@@ -22,7 +23,8 @@ public class PlayerInteractions : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         happiness = 100;
         energy = 100;
         child = transform.GetChild(0);
@@ -31,6 +33,29 @@ public class PlayerInteractions : MonoBehaviour {
     private void Update()
     {
         ChangeMentalStates(-1, -1);
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "interactable":
+
+                if (collision.gameObject.name.Contains("elevator"))
+                {
+                    GameObject.FindGameObjectWithTag("controller").GetComponent<MainController>().UseElevator();
+                }
+                else if (collision.gameObject.name.Contains("ladder"))
+                {
+
+                }
+                break;
+            case "floor":
+
+                break;
+            default:
+                Debug.Log("GOT HJERE");
+                break;
+        }
     }
 
     public void ChangeMentalStates(float hapVal, float engVal)
@@ -42,7 +67,7 @@ public class PlayerInteractions : MonoBehaviour {
         {
             happiness = 0;
         }
-        if(energy < 0)
+        if (energy < 0)
         {
             energy = 0;
         }

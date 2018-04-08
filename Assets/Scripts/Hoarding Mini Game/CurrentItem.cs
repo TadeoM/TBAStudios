@@ -8,7 +8,7 @@ public class CurrentItem : MonoBehaviour {
     [SerializeField] private Text timerText;
     [SerializeField] private Text itemText;
     [SerializeField] private OrganizeBox.ItemType type;
-    private int itemsLeft;
+    [SerializeField] private int itemsLeft;
     private HoarderHand hoarder;
     private List<OrganizeBox> targets;
     private Dictionary<Vector2, OrganizeBox> boxLocationMap;
@@ -23,7 +23,6 @@ public class CurrentItem : MonoBehaviour {
     private List<Sprite> trashSprites;
     private List<Sprite> electronicsSprites;
     private HashSet<Sprite> alreadyUsed;
-    private bool success;
     private bool gameOver;
     [SerializeField] private int SPEED;
     [SerializeField] private GameObject spriteTree;
@@ -37,7 +36,7 @@ public class CurrentItem : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        itemsLeft = 20;
+
         size = new Vector2(3, 2);
         targets = new List<OrganizeBox>();
         recyclingSprites = new List<Sprite>();
@@ -49,6 +48,7 @@ public class CurrentItem : MonoBehaviour {
         foreach(Transform child in spriteTree.transform)
         {
             string category = child.name;
+            Debug.Log(category);
             foreach(Transform sprite in child)
             {
                 if(category == "Recycling")
@@ -65,7 +65,7 @@ public class CurrentItem : MonoBehaviour {
                 }
                 else if(category == "Clothing")
                 {
-                    trashSprites.Add(sprite.GetComponent<SpriteRenderer>().sprite);
+                    clothingSprites.Add(sprite.GetComponent<SpriteRenderer>().sprite);
                 }
                 else if(category == "Paper")
                 {
@@ -119,15 +119,27 @@ public class CurrentItem : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            posChange.y += 1;
+            posChange.y -= 1;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            posChange.y -= 1;
+            posChange.y += 1;
         }
         Vector2 newPos;
-        newPos.x = Mod((int)(target.Position.x + posChange.x), (int)size.x);
         newPos.y = Mod((int)(target.Position.y + posChange.y), (int)size.y);
+        newPos.x = Mod((int)(target.Position.x + posChange.x), 3);
+        if (newPos.x == 1 && newPos.y == 1)
+        {
+            if (posChange.x == -1)
+            {
+                newPos.x -= 1;
+            }
+            else if (posChange.x == 1)
+            {
+                newPos.x += 1;
+            }
+        }
+        Debug.Log(newPos);
         target.GetComponent<SpriteRenderer>().color = Color.white; 
         target = boxLocationMap[newPos];
         if (!hoarder.HandMoving)
@@ -188,10 +200,6 @@ public class CurrentItem : MonoBehaviour {
                     GetComponent<SpriteRenderer>().sprite = newSprite;
                     alreadyUsed.Add(newSprite);
                     break;
-            }
-            if (alreadyAdded)
-            {
-                type = OrganizeBox.ItemType.SELL;
             }
             inMotion = false;
         }
