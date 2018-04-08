@@ -28,9 +28,7 @@ public class CatMiniGame : MonoBehaviour {
         timer.OnSecondsChanged += HandleSecondsChanged;
 
         // Start the timer 
-        InitTimer();
-
-        
+        InitTimer();        
     }
 
     private void Update()

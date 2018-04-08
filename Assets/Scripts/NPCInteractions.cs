@@ -49,7 +49,7 @@ public class NPCInteractions : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        happiness = 100;
+        happiness = 0;
         child = transform.GetChild(0);
         silhouette = child.GetComponent<SpriteRenderer>();
         ChangeMentalState(0);
