@@ -9,6 +9,7 @@ public class Recipe : MonoBehaviour
     [SerializeField] private int numItems;
 
     Timer timer;
+    private int score;
 
     public List<string> itemsSelected = new List<string>();
 
@@ -25,9 +26,15 @@ public class Recipe : MonoBehaviour
         timer.SetTimer(2);
         timer.StartTimer();
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
     void HandleTimeUp()
     {
-        Debug.Log("Time is up!");
+        Debug.Log("Time up!");
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(0).gameObject.SetActive(true);
     }
@@ -48,6 +55,11 @@ public class Recipe : MonoBehaviour
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
             if(hitCollider.tag == "Item")
             {
+                if(hitCollider.name == "" || hitCollider.name == "" || hitCollider.name == "" || hitCollider.name == "")
+                {
+                    score += 2;
+                }
+
                 hitCollider.transform.parent = cutItems;
                 hitCollider.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 hitCollider.transform.position = new Vector3(0, 0, 0);
@@ -56,16 +68,20 @@ public class Recipe : MonoBehaviour
                 if(numItems == 0)
                 {
                     this.gameObject.SetActive(false);
-                    //set active transition screen instead of knife
+                    GameManager.Instance.CookingScore += score;
+                    //If we want to have a Transition screen, set active transition screen instead of knife
                     knife.SetActive(true);
                 }
             }
 
+            //If we want to have a Transition screen
+            /*
             if (hitCollider.tag == "TransitionScreen")
             {
                 hitCollider.gameObject.SetActive(false);
                 knife.SetActive(true);
             }
+            */
         }
     }
 }

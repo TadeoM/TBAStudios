@@ -45,10 +45,10 @@ public class HoarderHand : MonoBehaviour {
         holdTimer.OnTimeUp += HandleTimeUp;
         for (int i = 0; i < itemsToSteal; i++)
         {
-            int random = Random.Range(5, gameTimer.GameTime-5);
+            int random = Random.Range(2, gameTimer.GameTime-5);
             while (handTimes.Contains(random) || handTimes.Contains(random-1) || handTimes.Contains(random+1))
             {
-                random = Random.Range(0, gameTimer.GameTime-5);
+                random = Random.Range(2, gameTimer.GameTime-5);
             }
             Debug.Log(random);
             handTimes.Add(random);
@@ -75,6 +75,14 @@ public class HoarderHand : MonoBehaviour {
         }
         if (!handMoving)
         {
+            if(target.Position.y == 0)
+            {
+                GetComponent<SpriteRenderer>().flipY = true;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipY = false;
+            }
             GetComponent<Transform>().position = oldPosition;
         }
         if (handMovingBack)
