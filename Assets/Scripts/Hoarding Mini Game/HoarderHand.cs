@@ -75,6 +75,14 @@ public class HoarderHand : MonoBehaviour {
         }
         if (!handMoving)
         {
+            if(target.Position.y == 0)
+            {
+                GetComponent<SpriteRenderer>().flipY = true;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipY = false;
+            }
             GetComponent<Transform>().position = oldPosition;
         }
         if (handMovingBack)

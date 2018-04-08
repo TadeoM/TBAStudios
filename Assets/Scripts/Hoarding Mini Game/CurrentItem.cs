@@ -85,7 +85,7 @@ public class CurrentItem : MonoBehaviour {
         Vector2 newPos;
         newPos.x = Mod((int)(target.Position.x + posChange.x), (int)size.x);
         newPos.y = Mod((int)(target.Position.y + posChange.y), (int)size.y);
-        target.GetComponent<SpriteRenderer>().color = Color.red; 
+        target.GetComponent<SpriteRenderer>().color = Color.white; 
         target = boxLocationMap[newPos];
         if (!hoarder.HandMoving)
         {
